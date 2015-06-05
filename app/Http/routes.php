@@ -19,3 +19,16 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+Route::resource('cars', 'CarController');
+Route::resource('models', 'ModelController');
+Route::resource('types', 'TypeController');
+Route::resource('categories', 'CategoryController');
+Route::resource('fueltypes', 'FueltypeController');
+Route::resource('colors', 'ColorController');
+Route::resource('countries', 'CountryController');
+Route::resource('consumptionemissions', 'ConsumptionemissionController');
+Route::resource('characteristics', 'CharacteristicController');
+Route::resource('versions', 'VersionController');
+Route::resource('marks', 'MarkController');
