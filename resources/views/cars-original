@@ -1,3 +1,4 @@
+1
 {!! Form::open(array('url' => 'cars', 'method' => 'POST')) !!}
 	<ul>
 		<li>
