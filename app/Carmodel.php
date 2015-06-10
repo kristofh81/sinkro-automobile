@@ -3,15 +3,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Version extends Model {
+class Carmodel extends Model {
 
-	protected $table = 'versions';
+	protected $table = 'carmodels';
 	public $timestamps = true;
-	protected $fillable = array('name');
 
 	public function cars()
 	{
 		return $this->belongsTo('App\Car');
+	}
+
+	public function marks()
+	{
+		return $this->belongsTo('App\Mark');
 	}
 
 }

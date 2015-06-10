@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -15,9 +14,9 @@ class Car extends Model {
 		return $this->hasOne('App\Mark', 'marks_id');
 	}
 
-	public function models()
+	public function carmodels()
 	{
-		return $this->hasOne('App\Model', 'models_id');
+		return $this->hasOne('App\Carmodel', 'carmodels_id');
 	}
 
 	public function types()

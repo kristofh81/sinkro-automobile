@@ -1,7 +1,7 @@
 <?php 
 namespace App\Http\Controllers;
 
-class ConsumptionemissionController extends Controller {
+class CarmodelController extends Controller {
 
   /**
    * Display a listing of the resource.

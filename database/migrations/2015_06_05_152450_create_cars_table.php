@@ -38,10 +38,10 @@ class CreateCarsTable extends Migration {
 			$table->integer('fuel_types_id')->unsigned();
 			$table->integer('consumptionemissions_id')->unsigned();
 			$table->integer('characteristics_id')->unsigned();
-			$table->timestamps();
 			$table->boolean('publish_flag')->default(0);
 			$table->boolean('reserved_flag')->default(0);
 			$table->integer('images_id')->unsigned()->nullable();
+			$table->timestamps();
 		});
 	}
 

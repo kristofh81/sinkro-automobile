@@ -22,7 +22,7 @@ Route::controllers([
 
 
 Route::resource('cars', 'CarController');
-Route::resource('models', 'ModelController');
+Route::resource('carmodels', 'CarmodelController');
 Route::resource('types', 'TypeController');
 Route::resource('categories', 'CategoryController');
 Route::resource('fueltypes', 'FueltypeController');
