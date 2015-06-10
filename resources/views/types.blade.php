@@ -1,11 +1,14 @@
-{!! Form::open(array('route' => 'route.name', 'method' => 'POST')) !!}
-	<ul>
 		<li>
-			{!! Form::label('name', 'Name:') !!}
-			{!! Form::text('name') !!}
+			{!! Form::select('name_types', 
+			array(
+				'1' => 'Berlina',
+				'2' => 'Citycar',
+				'3' => 'Station wagon',
+				'4' => 'Monovolume',
+				'5' => 'Fuoristrada/pickup',
+				'6' => 'Cabriolet/Roadster',
+				'7' => 'Auto sportiva/coupé',
+				'0' => 'Altro',
+			)); !!}
 		</li>
-		<li>
-			{!! Form::submit() !!}
-		</li>
-	</ul>
-{!! Form::close() !!}
+

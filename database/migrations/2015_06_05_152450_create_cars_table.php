@@ -15,16 +15,16 @@ class CreateCarsTable extends Migration {
 			$table->date('inscription_date');
 			$table->string('doors')->nullable();
 			$table->string('cilinders', 32)->nullable();
-			$table->datetime('production_date')->nullable();
+			$table->date('production_date')->nullable();
 			$table->date('revision_expiry_date')->nullable();
 			$table->date('bollino_blu_expiry_date')->nullable();
-			$table->datetime('immatriculation')->nullable();
+			$table->date('immatriculation')->nullable();
 			$table->string('total_owners')->nullable();
 			$table->boolean('accident_history')->nullable();
 			$table->boolean('travel_ability')->nullable();
 			$table->string('insert_code')->nullable();
 			$table->string('vin', 32)->nullable();
-			$table->datetime('availability_period')->nullable();
+			$table->date('availability_period')->nullable();
 			$table->text('description');
 			$table->integer('price')->index();
 			$table->integer('price_b2b')->nullable();
@@ -38,10 +38,10 @@ class CreateCarsTable extends Migration {
 			$table->integer('fuel_types_id')->unsigned();
 			$table->integer('consumptionemissions_id')->unsigned();
 			$table->integer('characteristics_id')->unsigned();
+			$table->timestamps();
 			$table->boolean('publish_flag')->default(0);
 			$table->boolean('reserved_flag')->default(0);
 			$table->integer('images_id')->unsigned()->nullable();
-			$table->timestamps();
 		});
 	}
 

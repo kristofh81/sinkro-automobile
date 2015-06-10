@@ -1,8 +1,21 @@
-{!! Form::open(array('route' => 'route.name', 'method' => 'POST')) !!}
+
 	<ul>
 		<li>
 			{!! Form::label('color_type', 'Color_type:') !!}
-			{!! Form::text('color_type') !!}
+			{!! Form::select('color_type', 
+			array(
+				'1' => 'Arancione',
+				'2' => 'Argento',
+				'3' => 'Bianco',
+				'4  ' => 'Blu',
+				'5' => 'Giallo',
+				'6' => 'Grigio',
+				'7' => 'Marrone',
+				'8' => 'Oro',
+				'9' => 'Rosso',
+				'10' => 'Verde',
+				'11' => 'Viola',
+			)); !!}
 		</li>
 		<li>
 			{!! Form::label('manufacturer', 'Manufacturer:') !!}
@@ -10,10 +23,21 @@
 		</li>
 		<li>
 			{!! Form::label('metallic', 'Metallic:') !!}
-			{!! Form::text('metallic') !!}
+			{!! Form::checkbox('metallic' ) !!}
 		</li>
-		<li>
-			{!! Form::submit() !!}
-		</li>
+
 	</ul>
-{!! Form::close() !!}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

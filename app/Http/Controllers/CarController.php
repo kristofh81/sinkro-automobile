@@ -1,5 +1,9 @@
 <?php 
+
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Nation;
 
 class CarController extends Controller {
 
@@ -10,7 +14,9 @@ class CarController extends Controller {
    */
   public function index()
   {
+    $cars = Nation::all();
     
+    return view('cars.index')->with( 'cars', $cars);
   }
 
   /**
@@ -20,7 +26,7 @@ class CarController extends Controller {
    */
   public function create()
   {
-    return view('cars');
+    return view('form');
   }
 
   /**
@@ -28,9 +34,25 @@ class CarController extends Controller {
    *
    * @return Response
    */
-  public function store()
+  public function store(Request $request)
   {
-    
+    Car::create([
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+       'marks_id' => $request->name_marks,
+      ]);
+
+    return $request->all();
+
   }
 
   /**
@@ -41,7 +63,8 @@ class CarController extends Controller {
    */
   public function show($id)
   {
-    
+    $cars = Nation::findOrFail($id);
+    return view('cars.show')->with( 'cars', $cars);
   }
 
   /**

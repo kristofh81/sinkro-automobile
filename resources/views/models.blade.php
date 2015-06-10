@@ -1,11 +1,4 @@
-{!! Form::open(array('route' => 'route.name', 'method' => 'POST')) !!}
-	<ul>
 		<li>
-			{!! Form::label('name', 'Name:') !!}
-			{!! Form::text('name') !!}
+			{!! Form::label('name_models', 'Name:') !!}
+			{!! Form::text('name_models') !!}
 		</li>
-		<li>
-			{!! Form::submit() !!}
-		</li>
-	</ul>
-{!! Form::close() !!}

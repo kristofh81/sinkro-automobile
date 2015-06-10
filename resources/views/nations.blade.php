@@ -1,11 +1,11 @@
-{!! Form::open(array('route' => 'route.name', 'method' => 'POST')) !!}
-	<ul>
 		<li>
 			{!! Form::label('name', 'Name:') !!}
-			{!! Form::text('name') !!}
+			{!! Form::select('name_nations', 
+			array(
+			'1'=>'Italy',
+            '2'=>'Germany',
+            '3'=>'Austria',
+            '4'=>'Svizzera',
+            '5'=>'Francia',
+			)); !!}
 		</li>
-		<li>
-			{!! Form::submit() !!}
-		</li>
-	</ul>
-{!! Form::close() !!}

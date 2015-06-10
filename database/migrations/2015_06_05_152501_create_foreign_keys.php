@@ -10,63 +10,63 @@ class CreateForeignKeys extends Migration {
 	{
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('marks_id')->references('id')->on('marks')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
-			$table->foreign('carmodels_id')->references('id')->on('carmodels')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+			$table->foreign('models_id')->references('id')->on('models')
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('types_id')->references('id')->on('types')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('versions_id')->references('id')->on('versions')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('colors_id')->references('id')->on('colors')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('categories_id')->references('id')->on('categories')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('nations_id')->references('id')->on('nations')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('fuel_types_id')->references('id')->on('fuel_types')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('consumptionemissions_id')->references('id')->on('consumptionemissions')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('characteristics_id')->references('id')->on('characteristics')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('images_id')->references('id')->on('images')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('marks', function(Blueprint $table) {
 			$table->foreign('model_id')->references('id')->on('models')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 	}
 
