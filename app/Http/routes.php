@@ -20,6 +20,10 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+Route::get('form', function(){
+		return view('form');
+	});
+
 
 Route::resource('cars', 'CarController');
 Route::resource('carmodels', 'CarmodelController');

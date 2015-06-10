@@ -149,6 +149,11 @@
 			{!! Form::label('characteristics_id', 'Characteristics_id:') !!}
 			{!! Form::text('characteristics_id') !!}
 		</li>
+
+		<hr>
+			@include('characteristics.characteristics')
+		<hr>
+
 		<li>
 			{!! Form::label('publish_flag', 'Publish_flag:') !!}
 			{!! Form::text('publish_flag') !!}
