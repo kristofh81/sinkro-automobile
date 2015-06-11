@@ -11,22 +11,14 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
 
-Route::get('form', function(){
-		return view('form');
-	});
 
 Route::resource('images', 'ImageController');
 
 Route::resource('cars', 'CarController');
+
 Route::resource('carmodels', 'CarmodelController');
 Route::resource('types', 'TypeController');
 Route::resource('categories', 'CategoryController');
@@ -38,3 +30,13 @@ Route::resource('characteristics', 'CharacteristicController');
 Route::resource('versions', 'VersionController');
 Route::resource('marks', 'MarkController');
 
+/*
+Route::get('/', 'WelcomeController@index');
+
+Route::get('home', 'HomeController@index');
+
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
+*/
