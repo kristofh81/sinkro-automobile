@@ -1,6 +1,10 @@
 <?php 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
+use App\Http\Requests\ImageRequest;
+
 class ImageController extends Controller {
 
   /**
@@ -10,7 +14,7 @@ class ImageController extends Controller {
    */
   public function index()
   {
-    
+    return view('images');
   }
 
   /**
@@ -20,7 +24,7 @@ class ImageController extends Controller {
    */
   public function create()
   {
-    
+    return view('images');
   }
 
   /**
@@ -28,9 +32,28 @@ class ImageController extends Controller {
    *
    * @return Response
    */
-  public function store()
+  public function store(ImageRequest $request)
   {
-    
+    $files = $request->file('filesUpload');
+
+     $car = new Car(array(
+      'name' => $request->get('name'),
+      'sku'  => $request->get('sku')
+    ));
+
+    $product->save();
+
+    foreach ($files as $file) {
+    $imageName = $product->id . '.' . 
+        $request->file('filesUpload[]')->getClientOriginalExtension();
+
+    $request->file('image')->move(
+        base_path() . '/public/img/', $imageName
+    );
+    }
+    return \Redirect::route('admin.products.edit', 
+        array($product->id))->with('message', 'Product added!');
+     
   }
 
   /**

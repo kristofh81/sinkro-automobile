@@ -133,3 +133,26 @@
 			{!! Form::submit() !!}
 		</li>
 	</ul>
+
+	{!! Form::file('filesToUpload[]', array('id'=>'filesToUpload', 'multiple' =>'multiple', 'onChange'=>'makeFileList();')); !!}
+  
+  <script src="{{ asset('/js/myscripts.js') }}"></script>
+  <script type="text/javascript">
+	function makeFileList() {
+		var input = document.getElementById("filesToUpload");
+		var tr = document.getElementById("fileList");
+		while (tr.hasChildNodes()) {
+			tr.removeChild(tr.firstChild);
+		}
+		for (var i = 0; i < input.files.length; i++) {
+			var td = document.createElement("td");
+			td.innerHTML = input.files[i].name;
+			tr.appendChild(td);
+		}
+		if(!tr.hasChildNodes()) {
+			var td = document.createElement("td");
+			td.innerHTML = 'Immagine';
+			tr.appendChild(td);
+		}
+	}
+</script>

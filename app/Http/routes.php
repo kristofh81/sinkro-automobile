@@ -24,6 +24,7 @@ Route::get('form', function(){
 		return view('form');
 	});
 
+Route::resource('images', 'ImageController');
 
 Route::resource('cars', 'CarController');
 Route::resource('carmodels', 'CarmodelController');
@@ -36,3 +37,4 @@ Route::resource('consumptionemissions', 'ConsumptionemissionController');
 Route::resource('characteristics', 'CharacteristicController');
 Route::resource('versions', 'VersionController');
 Route::resource('marks', 'MarkController');
+
