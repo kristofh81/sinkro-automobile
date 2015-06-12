@@ -1,211 +1,239 @@
-{!! Form::open(array('url' => 'cars', 'method' => 'POST')) !!}
-	<ul>
-		<li>
+
+<tr>	
+		<td>
 			{!! Form::label('airco', 'Airco:') !!}
 			{!! Form::checkbox('airco') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('park_sensors', 'Park_sensors:') !!}
 			{!! Form::checkbox('park_sensors') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('seats_number', 'Seats_number:') !!}
 			{!! Form::checkbox('seats_number') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('internal_design', 'Internal_design:') !!}
 			{!! Form::checkbox('internal_design') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('internal_color', 'Internal_color:') !!}
 			{!! Form::checkbox('internal_color') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('bluetooth', 'Bluetooth:') !!}
 			{!! Form::checkbox('bluetooth') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('cd_player', 'Cd_player:') !!}
 			{!! Form::checkbox('cd_player') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('electrically_adjustable_seats', 'Electrically_adjustable_seats:') !!}
 			{!! Form::checkbox('electrically_adjustable_seats') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('display_headup', 'Display_headup:') !!}
 			{!! Form::checkbox('display_headup') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('multifunction_assistent', 'Multifunction_assistent:') !!}
 			{!! Form::checkbox('multifunction_assistent') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('panoramic_view', 'Panoramic_view:') !!}
 			{!! Form::checkbox('panoramic_view') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('ski_bag', 'Ski_bag:') !!}
 			{!! Form::checkbox('ski_bag') !!}
-		</li>
-		<li>
-			{!! Form::label('auxiliary_heating', 'Auxiliary_heating:') !!}
-			{!! Form::checkbox('auxiliary_heating') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
+			{!! Form::label('auxitdary_heating', 'Auxitdary_heating:') !!}
+			{!! Form::checkbox('auxitdary_heating') !!}
+		</td>
+		<td>
 			{!! Form::label('radio_system', 'Radio_system:') !!}
 			{!! Form::checkbox('radio_system') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('on_board_computer', 'On_board_computer:') !!}
 			{!! Form::checkbox('on_board_computer') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('electric_windows', 'Electric_windows:') !!}
 			{!! Form::checkbox('electric_windows') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('handsfree_kit', 'Handsfree_kit:') !!}
 			{!! Form::checkbox('handsfree_kit') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('interface_mp3', 'Interface_mp3:') !!}
 			{!! Form::checkbox('interface_mp3') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('navigation', 'Navigation:') !!}
 			{!! Form::checkbox('navigation') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('convertible_roof', 'Convertible_roof:') !!}
 			{!! Form::checkbox('convertible_roof') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('seat_heating', 'Seat_heating:') !!}
 			{!! Form::checkbox('seat_heating') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('sporttype_seats', 'Sporttype_seats:') !!}
 			{!! Form::checkbox('sporttype_seats') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('cruise_control', 'Cruise_control:') !!}
 			{!! Form::checkbox('cruise_control') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('central_door_lock', 'Central_door_lock:') !!}
 			{!! Form::checkbox('central_door_lock') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('tow_bar', 'Tow_bar:') !!}
 			{!! Form::checkbox('tow_bar') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('alloy_wheels', 'Alloy_wheels:') !!}
 			{!! Form::checkbox('alloy_wheels') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('roof_rack', 'Roof_rack:') !!}
 			{!! Form::checkbox('roof_rack') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('sport_suspension', 'Sport_suspension:') !!}
 			{!! Form::checkbox('sport_suspension') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('electronic_side_windows', 'Electronic_side_windows:') !!}
 			{!! Form::checkbox('electronic_side_windows') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('sport_package', 'Sport_package:') !!}
 			{!! Form::checkbox('sport_package') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('class_emission', 'Class_emission:') !!}
 			{!! Form::checkbox('class_emission') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('airbag', 'Airbag:') !!}
 			{!! Form::checkbox('airbag') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('abs', 'Abs:') !!}
 			{!! Form::checkbox('abs') !!}
-		</li>
-		<li>
-			{!! Form::label('immobilizer', 'Immobilizer:') !!}
-			{!! Form::checkbox('immobilizer') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
+			{!! Form::label('immobitdzer', 'Immobitdzer:') !!}
+			{!! Form::checkbox('immobitdzer') !!}
+		</td>
+		<td>
 			{!! Form::label('isofix', 'Isofix:') !!}
 			{!! Form::checkbox('isofix') !!}
-		</li>
-		<li>
-			{!! Form::label('fog_lights', 'Fog_lights:') !!}
-			{!! Form::checkbox('fog_lights') !!}
-		</li>
-		<li>
+		</td>
+		<td>
+			{!! Form::label('fog_tdghts', 'Fog_tdghts:') !!}
+			{!! Form::checkbox('fog_tdghts') !!}
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('rain_sensor', 'Rain_sensor:') !!}
 			{!! Form::checkbox('rain_sensor') !!}
-		</li>
-		<li>
-			{!! Form::label('daytime_running_lights', 'Daytime_running_lights:') !!}
-			{!! Form::checkbox('daytime_running_lights') !!}
-		</li>
-		<li>
-			{!! Form::label('xenon_lights', 'Xenon_lights:') !!}
-			{!! Form::checkbox('xenon_lights') !!}
-		</li>
-		<li>
+		</td>
+		<td>
+			{!! Form::label('daytime_running_tdghts', 'Daytime_running_tdghts:') !!}
+			{!! Form::checkbox('daytime_running_tdghts') !!}
+		</td>
+		<td>
+			{!! Form::label('xenon_tdghts', 'Xenon_tdghts:') !!}
+			{!! Form::checkbox('xenon_tdghts') !!}
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('traction_integral', 'Traction_integral:') !!}
 			{!! Form::checkbox('traction_integral') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('esp', 'Esp:') !!}
 			{!! Form::checkbox('esp') !!}
-		</li>
-		<li>
-			{!! Form::label('adaptive_lights', 'Adaptive_lights:') !!}
-			{!! Form::checkbox('adaptive_lights') !!}
-		</li>
-		<li>
-			{!! Form::label('light_sensor', 'Light_sensor:') !!}
-			{!! Form::checkbox('light_sensor') !!}
-		</li>
-		<li>
+		</td>
+		<td>
+			{!! Form::label('adaptive_tdghts', 'Adaptive_tdghts:') !!}
+			{!! Form::checkbox('adaptive_tdghts') !!}
+		</td>
+</tr>
+<tr>
+		<td>
+			{!! Form::label('tdght_sensor', 'tdght_sensor:') !!}
+			{!! Form::checkbox('tdght_sensor') !!}
+		</td>
+		<td>
 			{!! Form::label('filter_antiparticles', 'Filter_antiparticles:') !!}
 			{!! Form::checkbox('filter_antiparticles') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('start_stop_system', 'Start_stop_system:') !!}
 			{!! Form::checkbox('start_stop_system') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>	
+		<td>
 			{!! Form::label('traction_control', 'Traction_control:') !!}
 			{!! Form::checkbox('traction_control') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('access_handicapped', 'Access_handicapped:') !!}
 			{!! Form::checkbox('access_handicapped') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('taxi', 'Taxi:') !!}
 			{!! Form::checkbox('taxi') !!}
-		</li>
-		<li>
+		</td>
+</tr>
+<tr>
+		<td>
 			{!! Form::label('guarantee', 'Guarantee:') !!}
 			{!! Form::checkbox('guarantee') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('service_booklet', 'Service_booklet:') !!}
 			{!! Form::checkbox('service_booklet') !!}
-		</li>
-		<li>
+		</td>
+		<td>
 			{!! Form::label('non_smoking', 'Non_smoking:') !!}
 			{!! Form::checkbox('non_smoking') !!}
-		</li>
-		<li>
-			{!! Form::submit() !!}
-		</li>
-	</ul>
-{!! Form::close() !!}
+		</td>
+</tr>

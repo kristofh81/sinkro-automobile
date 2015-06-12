@@ -13,14 +13,14 @@
 
 					{!! Form::open(array('route' => 'cars.store', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
 					@include('cars.form')
-					{!! Form::submit('Invia', array('class' => 'btn btn-default')) !!}
-					{!! Form::close() !!}
+			
 					</div>
 				</div>
 				<!--just outer panel!-->
 				<div style="text-align:right">
 					{!! Form::submit('Immagini &gt;&gt;', array('class' => 'btn btn-default')) !!}
 				</div>
+					{!! Form::close() !!}
 			</div>
 		</div>
 	</div>

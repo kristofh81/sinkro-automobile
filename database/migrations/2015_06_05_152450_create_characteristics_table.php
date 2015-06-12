@@ -39,6 +39,7 @@ class CreateCharacteristicsTable extends Migration {
 			$table->boolean('sport_suspension')->default(0);
 			$table->boolean('electronic_side_windows')->default(0);
 			$table->boolean('sport_package')->default(0);
+			$table->boolean('servo')->default(0);
 			$table->string('class_emission')->nullable();
 			$table->string('airbag')->nullable();
 			$table->boolean('abs')->default(0);

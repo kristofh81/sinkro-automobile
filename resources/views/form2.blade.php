@@ -1,6 +1,5 @@
 @extends('app')
 
-
 @section('content')
 <h1 style="text-align:center">Car Creation Page</h1><br>
 <p style="text-align:center"><strong>Dati del veicolo</strong>&nbsp;&nbsp;/&nbsp;&nbsp;Immagini&nbsp;&nbsp;/&nbsp;&nbsp;Completato</p>
@@ -28,7 +27,7 @@
 					{!! Form::label('versions_id', 'Versions_id:', array()) !!}
 					@include('versions')
 				</div>
-			
+<!--			
 			</div>
 				<hr>
 			<div class="form-group row">
@@ -155,7 +154,7 @@
 				</div>				
 			</div>
 				<hr>
-
+!-->
 			<div class="form-group row">
 				CONSUMPTION<br>
 		

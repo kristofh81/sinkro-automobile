@@ -23,8 +23,8 @@ class ImageRequest extends Request {
 	public function rules()
 	{
 		return [
-      'filesUpload'       => 'required|mimes:jpeg,bmp,png'
-    ];
+      	'filesUpload'       => 'required|image'
+    	];
 	}
 
 }

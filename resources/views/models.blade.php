@@ -1,4 +1,4 @@
 		<li>
 			{!! Form::label('name_models', 'Name:') !!}
-			{!! Form::text('name_models') !!}
+			{!! Form::hidden('model_id',1) !!}
 		</li>

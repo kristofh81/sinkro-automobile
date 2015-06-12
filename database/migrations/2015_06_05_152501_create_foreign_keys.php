@@ -34,17 +34,7 @@ class CreateForeignKeys extends Migration {
 						->onUpdate('cascade');
 		});
 		Schema::table('cars', function(Blueprint $table) {
-			$table->foreign('categories_id')->references('id')->on('categories')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('nations_id')->references('id')->on('nations')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('cars', function(Blueprint $table) {
-			$table->foreign('fuel_types_id')->references('id')->on('fuel_types')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
@@ -88,13 +78,7 @@ class CreateForeignKeys extends Migration {
 			$table->dropForeign('cars_colors_id_foreign');
 		});
 		Schema::table('cars', function(Blueprint $table) {
-			$table->dropForeign('cars_categories_id_foreign');
-		});
-		Schema::table('cars', function(Blueprint $table) {
 			$table->dropForeign('cars_nations_id_foreign');
-		});
-		Schema::table('cars', function(Blueprint $table) {
-			$table->dropForeign('cars_fuel_types_id_foreign');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->dropForeign('cars_consumptionemissions_id_foreign');

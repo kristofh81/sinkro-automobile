@@ -26,7 +26,8 @@
 						</div>
 					
 					<br>
-							<table class="table table-responsive">
+						<div class="table-responsive">
+							<table class="table table-bordered">
 								
 								<thead>
 									<strong>Panello immagini:</strong>
@@ -84,6 +85,7 @@
 							<p>Max. 14 immagini da inserire</p>
 	
 						<a href="">Elimina tutte le immagini</a>
+						</div>
 						
 					</div>
 				</div>

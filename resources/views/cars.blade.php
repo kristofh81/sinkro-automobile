@@ -169,7 +169,6 @@
 
 @endsection
 
-@section('scripts')
-  
+@section('scripts')  
   <script src="{{ asset('/js/myscripts.js') }}"></script>
 @endsection

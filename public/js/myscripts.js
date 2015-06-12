@@ -1,18 +1,18 @@
 $(function() {
-	$( ".datepicker" ).datepicker({ 
-   	changeMonth: true,
-    changeYear: true,
-    truedateFormat: "dd/mm/yy"
-    });
+   $( ".calendar" ).datepicker({ dateFormat: "dd/mm/yy", maxDate: "+10Y" }); 
+});
 
-   $( ".datepickerpast" ).datepicker({ 
-   	truedateFormat: "dd/mm/yy", 
+//datepicker
+$(function() {
+  $( ".calendar-past" ).datepicker({ 
     changeMonth: true,
     changeYear: true,
-    maxDate: "+2Y",
-    defaultDate: "-10y"
-    });
+    dateFormat: "dd/mm/yy"
+  });
+});
 
+//select buttons
+$(function() {
    $('.radio-button').on("click", function(event){
     $('.radio-button').prop('checked', false);
      $(this).prop('checked', true);

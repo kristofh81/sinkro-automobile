@@ -1,5 +1,5 @@
 
 		<li>
 			{!! Form::label('name_versions', 'Name:') !!}
-			{!! Form::text('name_versions') !!}
+			{!! Form::hidden('versions_id') !!}
 		</li>

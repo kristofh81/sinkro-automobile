@@ -7,7 +7,7 @@ class Car extends Model {
 
 	protected $table = 'cars';
 	public $timestamps = true;
-	protected $fillable = array('potency', 'mileage', 'doors', 'cilinders', 'production_date', 'revision_expiry_date', 'bollino_blu_expiry_date', 'immatriculation', 'total_owners', 'accident_history', 'travel_ability', 'insert_code', 'vin', 'availability_period', 'description', 'price', 'publish_flag', 'reserved_flag', 'images_id');
+	protected $fillable = array('category','potency', 'mileage', 'doors','fuel_type', 'cilinders', 'immatriculation_date', 'revision_expiry_date', 'bollino_blu_expiry_date', 'total_owners', 'accident_history', 'travel_ability', 'insert_code', 'vin', 'availability_period', 'description', 'price', 'publish_flag', 'reserved_flag', 'images_id');
 
 	public function marks()
 	{
@@ -29,19 +29,9 @@ class Car extends Model {
 		return $this->hasOne('App\Color', 'colors_id');
 	}
 
-	public function categories()
-	{
-		return $this->hasOne('App\Category', 'catogories_id');
-	}
-
 	public function versions()
 	{
 		return $this->hasOne('App\Version', 'versions_id');
-	}
-
-	public function fuel_types()
-	{
-		return $this->hasOne('App\Fueltype', 'fuel_types_id');
 	}
 
 	public function consumptionemissions()

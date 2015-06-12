@@ -15,7 +15,6 @@
 
 		{!! Form::open(array('route' => 'cars.store', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
 			<div class="form-group row">
-
 				<div class='col-md-4'>
 					{!! Form::label('mark_id', 'Mark_id:', array()) !!}
 					@include('marks')
