@@ -19,10 +19,9 @@
 		</div>
 		<div class='col-md-4'>
 			{!! Form::label('manufacturer', 'Manufacturer:') !!}
-			{!! Form::text('manufacturer', '', array('class' => 'form-control')) !!}
+			{!! Form::text('manufacturer', null, array('class' => 'form-control')) !!}
 		</div>
 		<div class='col-md-4'>
 			{!! Form::label('metallic', 'Metallic:') !!}
-			{!! Form::checkbox('metallic', '', array('class' => 'form-control') ) !!}
+			{!! Form::checkbox('metallic') !!}
 		</div>
-

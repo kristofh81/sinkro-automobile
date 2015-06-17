@@ -7,6 +7,7 @@ $(function() {
   $( ".calendar-past" ).datepicker({ 
     changeMonth: true,
     changeYear: true,
+    minDate: "-30Y",
     dateFormat: "dd/mm/yy"
   });
 });

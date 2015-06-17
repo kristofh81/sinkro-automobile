@@ -7,46 +7,45 @@ class Car extends Model {
 
 	protected $table = 'cars';
 	public $timestamps = true;
-	protected $fillable = array('category','potency', 'mileage', 'doors','fuel_type', 'cilinders', 'immatriculation_date', 'revision_expiry_date', 'bollino_blu_expiry_date', 'total_owners', 'accident_history', 'travel_ability', 'insert_code', 'vin', 'availability_period', 'description', 'price', 'publish_flag', 'reserved_flag', 'images_id');
+	protected $fillable = array('category', 'type', 'potency', 'mileage', 'doors','fuel_type', 'cilinders', 'immatriculation_date', 'revision_expiry_date', 'bollino_blu_expiry_date', 'total_owners', 'accident_history', 'travel_ability', 'insert_code', 'vin', 'availability_period', 'description', 'price', 'publish_flag', 'reserved_flag', 'images_id');
 
 	public function marks()
 	{
-		return $this->hasOne('App\Mark', 'marks_id');
+		return $this->belongsToMany('App\Mark')->withTimestamps();
 	}
 
 	public function carmodels()
 	{
-		return $this->hasOne('App\Carmodel', 'carmodels_id');
-	}
-
-	public function types()
-	{
-		return $this->hasOne('App\Type', 'types_id');
+		return $this->hasOne('App\Carmodel');
 	}
 
 	public function colors()
 	{
-		return $this->hasOne('App\Color', 'colors_id');
+		return $this->hasOne('App\Color');
 	}
 
 	public function versions()
 	{
-		return $this->hasOne('App\Version', 'versions_id');
+		return $this->hasOne('App\Version');
+	}
+	public function nations()
+	{
+		return $this->belongsToMany('App\Nation')->withTimestamps();
 	}
 
 	public function consumptionemissions()
 	{
-		return $this->hasOne('App\Consumptionemission', 'consumptionemissions_id');
+		return $this->hasOne('App\Consumptionemission');
 	}
 
 	public function characteristics()
 	{
-		return $this->hasOne('App\Characteristic', 'characteristics_id');
+		return $this->hasOne('App\Characteristic');
 	}
 
 	public function images()
 	{
-		return $this->hasOne('App\Image', 'images_id');
+		return $this->hasMany('App\Image');
 	}
 
 }

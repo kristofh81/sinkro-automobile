@@ -12,4 +12,5 @@
 				'8' => 'Ibrida -> (diesel/elettrica)',
 				'9' => 'Idrogeno',
 				'10' => 'Altro',
-			), 'key', array('class' => 'form-control')); !!}
+			), 'key', array('class' => 'form-control')); 
+			!!}

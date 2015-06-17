@@ -9,9 +9,8 @@
 					<div class="panel-body">
         			@include('errors.errorlist')
 
-					{!! Form::open(array('route' => 'cars.store', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
+					{!! Form::model($car, array('route' => 'cars.store', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
 					@include('cars.form')
-					{!! Form::submit('Invia', array('class' => 'btn btn-default')) !!}
 					{!! Form::close() !!}
 					</div>
 				</div>

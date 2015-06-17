@@ -7,7 +7,7 @@ class Image extends Model {
 
 	protected $table = 'images';
 	public $timestamps = true;
-	protected $fillable = array('location');
+	protected $fillable = array('location', 'car_id', 'is_main');
 
 	public function cars()
 	{

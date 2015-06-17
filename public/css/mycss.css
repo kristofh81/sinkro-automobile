@@ -1,5 +1,9 @@
 .td-images > img {
-	max-width:100%;
-	max-height:50%;
+	max-width:190px;
+	max-height:190px;
 }
 
+.obj-img {
+	margin-right: auto;
+	margin-left: auto;
+}

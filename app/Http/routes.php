@@ -20,11 +20,10 @@ Route::resource('images', 'ImageController');
 Route::resource('cars', 'CarController');
 
 Route::resource('carmodels', 'CarmodelController');
-Route::resource('types', 'TypeController');
-Route::resource('categories', 'CategoryController');
+
 Route::resource('fueltypes', 'FueltypeController');
 Route::resource('colors', 'ColorController');
-Route::resource('countries', 'CountryController');
+
 Route::resource('consumptionemissions', 'ConsumptionemissionController');
 Route::resource('characteristics', 'CharacteristicController');
 Route::resource('versions', 'VersionController');

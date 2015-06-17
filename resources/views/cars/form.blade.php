@@ -1,6 +1,6 @@
 			<div class="form-group row">
 				<div class='col-md-6'>
-					{!! Form::label('categories_id', 'Categories_id:') !!}
+					{!! Form::label('categories_id', 'Categories_id: *') !!}
 					{!! Form::select('category', array(
 					'0' => 'Seleziona',
 					'1' => 'Usato',
@@ -11,34 +11,38 @@
 		<hr>
 			<div class="form-group row">
 				<div class='col-md-4'>
-					{!! Form::label('mark_id', 'Mark_id:', array()) !!}
-					@include('marks')
+					@include('cars.form-partials.marks')
 				</div>
 				<div class='col-md-4'>
 					{!! Form::label('models_id', 'Models_id:', array()) !!}
-					@include('models')
+					@include('cars.form-partials.models')
 				</div>
 				<div class='col-md-4'>
 					{!! Form::label('versions_id', 'Versions_id:', array()) !!}
-					@include('versions')
+					@include('cars.form-partials.versions')
 				</div>			
 			</div>
 		<hr>
 			<div class="form-group row">
 				<div class='col-md-6'>
-					{!! Form::label('type', 'Type:') !!}
-					@include('types')
+					@include('cars.form-partials.types')
 				</div>	
 				
 				<div class='col-md-6'>
-					{!! Form::label('mileage', 'Mileage:') !!}
+					{!! Form::label('mileage', 'Mileage: *') !!}
+						<div class="input-group">
+                        	<span class="input-group-addon">Km</span>
 					{!! Form::text('mileage', null, array('class' => 'form-control')) !!}
+						</div>
 				</div>
 			</div>
 			<div class="form-group row">
 				<div class='col-md-4'>
 					{!! Form::label('potency', 'Potency:') !!}
-					{!! Form::text('potency', null, array('class' => 'form-control')) !!} <em>in kW</em>
+						<div class="input-group">
+                        	<span class="input-group-addon">kW</span>
+							{!! Form::text('potency', null, array('class' => 'form-control')) !!}
+							</div>
 				</div>
 				<div class='col-md-4'>
 					{!! Form::label('gears', 'gears:') !!}
@@ -62,7 +66,7 @@
 			<div class="form-group row">
 				<div class='col-md-4'>
 					{!! Form::label('fuel_types_id', 'Fuel_types_id:') !!}
-					@include('fuel_types')
+					@include('cars.form-partials.fuel_types')
 				</div>
 				<div class='col-md-4'>
 					{!! Form::label('cilinders', 'Cilinders:') !!}
@@ -70,25 +74,23 @@
 				</div>
 			</div>
 
-			<div class="form-group row">
-				<div class='col-md-8'>
-					{!! Form::label('colors_id', 'Colors_id:') !!}
-					@include('colors')
-				</div>				
+			<div class="form-group row">				
+					{!! Form::label('colors_id', 'Colori:') !!}
+					@include('cars.form-partials.colors')								
 			</div>
 		<hr>
 
 			<div class="form-group row">
 				<div class='col-md-4'>
-					{!! Form::label('immatriculation_date', 'immatriculation_date:') !!}<br>
-					{!! Form::text('immatriculation_date', null , 
-						array('class' => 'form-control calendar-past')); !!}					
-				</div>  
+					{!! Form::label('immatriculation_date', 'immatriculation_date:') !!}
+					{!! Form::selectMonth('immatriculation_date_month' , null, array('class' => 'form-control')) !!}
+										
+					{!! Form::selectYear('immatriculation_date_year', date("Y"), 1900, null, array('class' => 'form-control')) !!}					
+				</div>   
 				
 				<div class='col-md-8'>
-					{!! Form::label('nations_id', 'Nations_id:') !!}
-					{!! Form::text('nations_id') !!}
-					@include('nations')
+					{!! Form::label('nations_id', 'Per quale paese e stato prodotto il veicolo?:') !!}
+					@include('cars.form-partials.nations')
 				</div>
 			</div>
 			<div class="form-group row">
@@ -113,7 +115,7 @@
 			</div>									
 		<hr>
 			<div class="form-group row ">		
-				<div class='col-md-8'>
+				<div class='col-md-4'>
 					{!! Form::label('total_owners', 'Total_owners:') !!}
 					{!! Form::text('total_owners', null, array('class' => 'form-control')) !!}
 				</div>				
@@ -122,11 +124,11 @@
 
 			<div class="form-group row">
 				<div class='col-md-4'>
-					{!! Form::label('accident_history', 'Accident_history:') !!}
+					{!! Form::label('accident_history', 'Accident_history: *') !!}
 					{!! Form::select('accident_history', array(
 					'0' => 'Seleziona', 
-					'1' => 'senza incidente', 
-					'2' => 'incidentata'), 'key', array('class' => 'form-control')) !!}
+					'1' => 'Non incidentata', 
+					'2' => 'Incidentata'), null, array('class' => 'form-control')) !!}
 				</div>
 				<div class='col-md-4'>
 					{!! Form::label('travel_ability', 'Travel_ability:') !!}
@@ -162,18 +164,13 @@
 				<h3>Emissioni e consumo energetico</h3>
 					{!! Form::label('consumptionemissions_id', 'Consumptionemissions_id:') !!}
 					{!! Form::hidden('consumptionemissions_id', 1) !!}
-					@include('consumptionemissions')
+					@include('cars.form-partials.consumptionemissions')
 				
 			</div>
-			
+		<hr>	
 			<div class="form-group row">
-				
-					{!! Form::label('characteristics_id', 'Characteristics_id:') !!}
-					{!! Form::text('characteristics_id') !!}
-				
 
-				<hr>
-					@include('characteristics.characteristics')
+					@include('cars.form-partials.characteristics')
 
 			</div>
 		<hr>		
@@ -189,14 +186,18 @@
 
 			<div class="form-group row">
 				<div class='col-md-4'>
-					{!! Form::label('price', 'Price:') !!}
-					{!! Form::text('price', null, array('class' => 'form-control')) !!}
-					<em>in €</em>
+				{!! Form::label('price', 'Price: *') !!}
+					<div class=" input-group">
+                        <span class="input-group-addon">€</span>		
+							{!! Form::text('price', null, array('class' => 'form-control')) !!}					
+					</div>
 				</div>
 				<div class='col-md-4'>
 					{!! Form::label('price_b2b', 'Price_b2b:') !!}
-					{!! Form::text('price_b2b', null, array('class' => 'form-control')) !!}
-					<em>in €</em>
+					<div class=" input-group">
+                        <span class="input-group-addon">€</span>
+							{!! Form::text('price_b2b', null, array('class' => 'form-control')) !!}
+					</div>
 				</div>
 			</div>
 			<hr>
@@ -209,10 +210,6 @@
 				<div class='col-md-4'>
 					{!! Form::label('reserved_flag', 'Reserved_flag:') !!}
 					{!! Form::checkbox('reserved_flag') !!}
-				</div>
-				<div class='col-md-4'>
-					{!! Form::label('images_id', 'Images_id:') !!}
-					{!! Form::text('images_id') !!}
 				</div>
 			</div>
 			<hr>			

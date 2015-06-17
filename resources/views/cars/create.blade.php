@@ -18,6 +18,7 @@
 				</div>
 				<!--just outer panel!-->
 				<div style="text-align:right">
+				
 					{!! Form::submit('Immagini &gt;&gt;', array('class' => 'btn btn-default')) !!}
 				</div>
 					{!! Form::close() !!}
@@ -28,5 +29,5 @@
 @endsection
 
 @section('scripts')
-	<script src="{{ asset('/js/myscripts.js') }}"></script>
+<script src="{{ asset('/js/myscripts.js') }}"></script>
 @endsection

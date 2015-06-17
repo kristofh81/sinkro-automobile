@@ -23,7 +23,7 @@ class ImageRequest extends Request {
 	public function rules()
 	{
 		return [
-      	'filesUpload'       => 'required|image'
+      	//'filesUpload'       => 'required|image'
     	];
 	}
 

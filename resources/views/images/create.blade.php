@@ -11,73 +11,67 @@
         		<div class="panel-heading">2. Image upload page</div>
         			
         			<div class="panel-body">
-						<div>
-					{!! Form::open(array('url' => 'images', 'method' => 'POST', 'enctype'=>'multipart/form-data')) !!}
+        			@include('errors.errorlist')
 						
-								{!! Form::label('location', 'Location:') !!}
-								{!! Form::text('location') !!}
-							
-								{!! Form::label('location', 'Location:') !!}
+					{!! Form::open(array('action' => 'ImageController@store', 'method' => 'POST',  'class' => 'form-horizontal', 'files' => true)) !!}
+													
+						{!! Form::label('location', 'Scelgi immagini: *') !!}
 								
-								{!! Form::file('filesUpload[]', array('id'=>'fileElem', 'multiple' =>'multiple', 'accept' => 'image/*', 'onChange'=>'handleFiles(this.files);')); !!}
-							
-								{!! Form::submit() !!}
-			
-						</div>
-					
-					<br>
+						{!! Form::file('imagesUpload[]', array('id'=>'fileElem', 'multiple', 'required', 'accept' => 'image/*', 'onChange'=>'handleFiles(this.files);')); !!}
+				
+					<br><br>
 						<div class="table-responsive">
 							<table class="table table-bordered">
 								
 								<thead>
-									<strong>Panello immagini:</strong>
+									<strong>Panello immagini</strong>
 								</thead>
 								<tbody id="table-body">
 									<tr id="preview">
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;"><br>Immagine
+											<img src="../img/image-example.png" align="middle" style="width:80px;height:70px;"><br>Immagine
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" align="middle" style="width:80px;height:70px;">
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>									
 									</tr>
 									<tr id="preview2">
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 											<br>Immagine
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 										<td>
-											<img src="img/image-example.png" style="width:50%;height:40%;">
+											<img src="../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 									</tr>								
 								</tbody>			
@@ -89,12 +83,12 @@
 						
 					</div>
 				</div>
-					<!--just outer panel!-->
+					<!--just out panel right align!-->
 					<div style="text-align:right">
-
-					{!! Form::submit('completato &gt;&gt;', array('class' => 'btn btn-default')) !!}
-					{!! Form::close() !!}
+						{!! Form::submit('Completa &gt;&gt;', array('class' => 'btn btn-default')) !!}
 					</div>
+
+					{!! Form::close() !!}					
 			</div>
 		</div>
 	</div>
@@ -136,7 +130,8 @@ function handleFiles(files) {
     	td.classList.add("td-images");
     
     	var img = document.createElement("img");
-    	img.classList.add("obj");
+    	img.classList.add("obj-img");
+    	img.setAttribute("align","middle");
     	img.file = file;
    	
     	td.appendChild(img); // "preview" .td is the output where the content will be displayed.

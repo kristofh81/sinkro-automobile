@@ -23,7 +23,7 @@ class CarRequest extends Request {
 	public function rules()
 	{
 		return [
-		/*
+		
 			'category' 				=> 'numeric|min:1',
 			'type' 					=> '',
 			'potency' 				=> '',
@@ -53,8 +53,9 @@ class CarRequest extends Request {
 
 			'consumptionemissions_id' => '',
 			'characteristics_id' 	=> '',
-			'immatriculation_date'	=> 'required|date',
-*/
+			'immatriculation_date_month'	=> 'required|numeric',
+			'immatriculation_date_year'	=> 'required|numeric',
+
 			];
 	}
 

@@ -1,5 +1,4 @@
-			{!! Form::label('name', 'Name:') !!}
-			{!! Form::select('name_nations', 
+		{!! Form::select('nations_id', 
 			array(
 			'0'=>'Seleziona',
 			'1'=>'Italia',
@@ -7,5 +6,5 @@
             '3'=>'Austria',
             '4'=>'Svizzera',
             '5'=>'Francia',
-			), 'key', array('class' => 'form-control')); !!}
-
+			), 'key', array('class' => 'form-control')); 
+		!!}

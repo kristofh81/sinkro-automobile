@@ -10,7 +10,7 @@ class Nation extends Model {
 
 	public function cars()
 	{
-		return $this->belongsTo('App\Car');
+		return $this->belongsToMany('App\Car');
 	}
 
 }

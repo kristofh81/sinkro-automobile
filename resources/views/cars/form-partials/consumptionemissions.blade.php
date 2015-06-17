@@ -9,24 +9,28 @@
 	</div>
 
 	<div class='col-md-6'>
-		<br>
-			{!! Form::label('consumption_urban', 'Consumption_urban:') !!}
+		{!! Form::label('consumption_urban', 'Consumption_urban:') !!}
+		<div class=" input-group">
+			<span class="input-group-addon"><em>(l/100km)</em></span>
 			{!! Form::text('consumption_urban',null, array('class' => 'form-control')) !!}
-			<em>(l/100km)</em>
-		<br>
-			{!! Form::label('consumption_suburban', 'Consumption_suburban:') !!}
+		</div>
+		{!! Form::label('consumption_suburban', 'Consumption_suburban:') !!}
+		<div class=" input-group">
+			<span class="input-group-addon"><em>(l/100km)</em></span>
 			{!! Form::text('consumption_suburban', null, array('class' => 'form-control')) !!}
-			<em>(l/100km)</em>
-		<br>
-			{!! Form::label('consumption_general', 'Consumption_general:') !!}
+		</div>		
+		{!! Form::label('consumption_general', 'Consumption_general:') !!}
+		<div class=" input-group">
+			<span class="input-group-addon"><em>(l/100km)</em></span>
 			{!! Form::text('consumption_general', null, array('class' => 'form-control')) !!}
-			<em>(l/100km)</em>
-		<br>
-			{!! Form::label('emission_co2', 'Emission_co2:') !!}
+		</div>	
+		{!! Form::label('emission_co2', 'Emission_co2:') !!}
+		<div class=" input-group">
+			<span class="input-group-addon"><em>(g/km)</em></span>
 			{!! Form::text('emission_co2', null, array('class' => 'form-control')) !!}
-			<em>(g/km)</em>
-		<br>
-			{!! Form::label('class_energy_efficiency', 'Class_energy_efficiency:') !!}
+		</div>
+
+		{!! Form::label('class_energy_efficiency', 'Class_energy_efficiency:') !!}
 			{!! Form::select('class_energy_efficiency', array(
 					'0' => 'Seleziona', 
 					'1' => 'euro1', 

@@ -1,5 +1,5 @@
-			{!! Form::label('name', 'Name:') !!}
-			{!! Form::select('marks_id', 
+	{!! Form::label('marca', 'Marca: *') !!}
+		{!! Form::select('marks_id', 
 			array(
 				'0' => 'Seleziona',
 				'1' => 'Fiat',
@@ -12,6 +12,5 @@
 				'8' => 'Altro',
 			), 'key', array('class' => 'form-control')); !!}
 <br>
-			{!! Form::label('model_id', 'Model_id:') !!}
-			{!! Form::hidden('model_id', 1) !!}
-
+		{!! Form::label('model_id', 'Model_id:') !!}
+		{!! Form::hidden('model_id', 1) !!}
