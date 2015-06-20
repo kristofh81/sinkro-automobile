@@ -8,6 +8,9 @@
 				<div class="panel-heading">Edit Dati del veicolo</div>
 					<div class="panel-body">
         			@include('errors.errorlist')
+        			@foreach ($images as $image)
+							<img src="../../{{ $image->location }}" style="width=250px;height=150px;">
+					@endforeach
 
 					{!! Form::model($car, array('route' => 'cars.store', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
 					@include('cars.form')

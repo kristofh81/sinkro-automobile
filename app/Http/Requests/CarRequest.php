@@ -23,7 +23,7 @@ class CarRequest extends Request {
 	public function rules()
 	{
 		return [
-		
+		/*
 			'category' 				=> 'numeric|min:1',
 			'type' 					=> '',
 			'potency' 				=> '',
@@ -49,13 +49,13 @@ class CarRequest extends Request {
 			'types_id' 				=> '',
 			'versions_id' 			=> '',
 			'colors_id' 			=> '',
-			'nations' 				=> 'numeric',
+			'nations' 				=> 'required|numeric',
 
 			'consumptionemissions_id' => '',
 			'characteristics_id' 	=> '',
 			'immatriculation_date_month'	=> 'required|numeric',
 			'immatriculation_date_year'	=> 'required|numeric',
-
+			*/
 			];
 	}
 

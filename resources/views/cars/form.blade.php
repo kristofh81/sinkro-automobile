@@ -3,8 +3,8 @@
 					{!! Form::label('categories_id', 'Categories_id: *') !!}
 					{!! Form::select('category', array(
 					'0' => 'Seleziona',
-					'1' => 'Usato',
-					'2' => 'Nuovo',
+					'Usato' => 'Usato',
+					'Nuovo' => 'Nuovo',
 					), 'key', array('class' => 'form-control')) !!}
 				</div>
 			</div>
@@ -48,19 +48,19 @@
 					{!! Form::label('gears', 'gears:') !!}
 					{!! Form::select('gears', array(
 					'0' => 'Seleziona',
-					'1' => 'Manuale',
-					'2' => 'Automatico',
-					'3' => 'Semi-automatico',
-					), 'key', array('class' => 'form-control')) !!}
+					'Manuale' => 'Manuale',
+					'Automatico' => 'Automatico',
+					'Semi-automatico' => 'Semi-automatico',
+					), null, array('class' => 'form-control')) !!}
 				</div>
 				<div class='col-md-4'>
 					{!! Form::label('doors', 'Doors:') !!}
 					{!! Form::select('doors', array(
 					'0' => 'Seleziona',
-					'1' => '2 o 3',
-					'2' => '4 o 5',
-					'3' => '6 o 7',
-					), 'key', array('class' => 'form-control')) !!}
+					'2 o 3' => '2 o 3',
+					'4 o 5' => '4 o 5',
+					'6 o 7' => '6 o 7',
+					), null, array('class' => 'form-control')) !!}
 				</div>
 			</div>
 			<div class="form-group row">
@@ -82,28 +82,30 @@
 
 			<div class="form-group row">
 				<div class='col-md-4'>
-					{!! Form::label('immatriculation_date', 'immatriculation_date:') !!}
-					{!! Form::selectMonth('immatriculation_date_month' , null, array('class' => 'form-control')) !!}
+					{!! Form::label('immatriculation_date', 'immatriculation_date: *') !!}
+					{!! Form::select('immatriculation_date_month', array( 
+					'01' => 'Gennaio','02' => 'Febbraio','03' => 'Marzo','04' => 'Aprile','05' => 'Maggio','06' => 'Giugno','07' => 'Luglio','08' => 'Agosto','09' => 'Settembre','10' => 'Ottobre','11' => 'Novembre','12' => 'Dicembre',
+					) , null, array('class' => 'form-control')) !!}
 										
 					{!! Form::selectYear('immatriculation_date_year', date("Y"), 1900, null, array('class' => 'form-control')) !!}					
 				</div>   
 				
 				<div class='col-md-8'>
-					{!! Form::label('nations_id', 'Per quale paese e stato prodotto il veicolo?:') !!}
+					{!! Form::label('nations_id', 'Per quale paese e stato prodotto il veicolo?: *') !!}
 					@include('cars.form-partials.nations')
 				</div>
 			</div>
 			<div class="form-group row">
 				<div class='col-md-4'>
 					{!! Form::label('revision_expiry_date', 'Revision_expiry_date:') !!}
-					{!! Form::text('revision_expiry_date', null, 
+					{!! Form::text('revision_expiry_date', date('d/m/Y'), 
 		                    array(
 		                          'class'=>'form-control calendar', 
 		                          'id'=>'')) !!}
 				</div>		
 				<div class='col-md-4'>
 					{!! Form::label('bollino_blu_expiry_date', 'Bollino_blu_expiry_date:') !!}
-					{!! Form::text('bollino_blu_expiry_date', null, 
+					{!! Form::text('bollino_blu_expiry_date', date('d/m/Y'), 
 		                    array(
 		                          'class'=>'form-control calendar', 
 		                          'id'=>'')) !!}
@@ -152,7 +154,7 @@
 				<h3>Disponibilità</h3>	
 				<div class='col-md-4'>
 					{!! Form::label('availability_period', 'Availability_period:') !!}
-					{!! Form::text('availability_period', null, 
+					{!! Form::text('availability_period', date('d/m/Y'), 
 		                    array(
 		                          'class'=>'form-control calendar', 
 		                          'id'=>'')) !!}
@@ -205,7 +207,7 @@
 			<div class="form-group row">
 				<div class='col-md-4'>
 					{!! Form::label('publish_flag', 'Publish_flag:') !!}
-					{!! Form::checkbox('publish_flag') !!}
+					{!! Form::checkbox('publish_flag', true , array('class' => 'form-control')) !!}
 				</div>
 				<div class='col-md-4'>
 					{!! Form::label('reserved_flag', 'Reserved_flag:') !!}

@@ -12,13 +12,11 @@
         			@include('errors.errorlist')
 
 					{!! Form::open(array('route' => 'cars.store', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
-					@include('cars.form')
-			
+					@include('cars.form')			
 					</div>
 				</div>
 				<!--just outer panel!-->
-				<div style="text-align:right">
-				
+				<div style="text-align:right">				
 					{!! Form::submit('Immagini &gt;&gt;', array('class' => 'btn btn-default')) !!}
 				</div>
 					{!! Form::close() !!}

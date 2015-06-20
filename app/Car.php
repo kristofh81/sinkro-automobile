@@ -7,7 +7,7 @@ class Car extends Model {
 
 	protected $table = 'cars';
 	public $timestamps = true;
-	protected $fillable = array('category', 'type', 'potency', 'mileage', 'doors','fuel_type', 'cilinders', 'immatriculation_date', 'revision_expiry_date', 'bollino_blu_expiry_date', 'total_owners', 'accident_history', 'travel_ability', 'insert_code', 'vin', 'availability_period', 'description', 'price', 'publish_flag', 'reserved_flag', 'images_id');
+	protected $fillable = array('category', 'type', 'potency', 'mileage', 'doors', 'gears', 'fuel_type', 'cilinders', 'immatriculation_date', 'revision_expiry_date', 'bollino_blu_expiry_date', 'total_owners', 'accident_history', 'travel_ability', 'insert_code', 'vin', 'availability_period', 'description', 'price', 'publish_flag', 'reserved_flag', 'images_id');
 
 	public function marks()
 	{
@@ -46,6 +46,25 @@ class Car extends Model {
 	public function images()
 	{
 		return $this->hasMany('App\Image');
+	}
+
+	/**
+	* convert into time format ('Y-m-d')
+	*
+	*/
+	public static function dbDateFormat($param="00/00/0000")
+	{
+		$newDateString = date_create_from_format("d/m/Y", $param);
+		return $newDateString->format("Y-m-d");
+	}
+
+	/**
+	* scope published cars in cars.index
+	*
+	*/
+	public function scopePublished($query)
+	{
+		$query->where('publish_flag', '=', '1');
 	}
 
 }

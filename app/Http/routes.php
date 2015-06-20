@@ -13,9 +13,13 @@
 
 
 
+//Route::get('cars/images-admin/{car_id}', 'ImageController@show');
+//Route::get('cars/images-admin/edit/{car_id}', 'ImageController@edit');
+//Route::post('cars/images/{car_id}/edit', 'ImageController@storenewimages');
 
 
-Route::resource('images', 'ImageController');
+
+Route::resource('cars/images', 'ImageController');
 
 Route::resource('cars', 'CarController');
 

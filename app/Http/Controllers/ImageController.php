@@ -20,7 +20,6 @@ use Validator;
 use Redirect;
 use Session;
 
-
 class ImageController extends Controller {
 
   /**
@@ -41,11 +40,13 @@ class ImageController extends Controller {
   public function create()
   {
     
-    return view('images.create');
+    return view('cars.images.create');
   }
 
   /**
    * Store a newly created resource in storage.
+   * Request request: retrieve input last request (cars.image.create)
+   * Session - 
    *
    * @return Response
    */
@@ -66,10 +67,14 @@ class ImageController extends Controller {
       $input_car = session('input_car');
       $input_marks_id = session('input_marks_id');
       $input_nations_id = session('input_nations_id');
-    } else { return "some input of page 1 has not been set"; }
-    
+    } else 
+    { 
+      //return "some input of page 1 has not been set"; 
+      session()->flash('flash_error_session_message', 'Input has been lost during the session');
+      return redirect()->route('cars.create');
+    }
     Session::flush();
-    dd($input_car);
+
     $color = Color::create($input_colors);
     $cons = Consumptionemission::create($input_consumptionemission);
     $char = Characteristic::create($input_characteristics);
@@ -89,7 +94,14 @@ class ImageController extends Controller {
 
     //get image files array
     $uploaded_images = Input::file('imagesUpload');
-      
+
+    // validation for number of images upload
+    if(count($uploaded_images) > 12 ){
+      session()->flash('flash_error_countimages_message', 'Hai inserito piu di 12 immagini!');
+      return redirect()->route('cars.images.create');
+    } else {true;}
+  
+    foreach ($uploaded_images as $key => $one_uploaded_image) {  
       /*
       // setting up rules
       $rules = array('image' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
@@ -103,8 +115,6 @@ class ImageController extends Controller {
       // checking file is valid.
       */
 
-    foreach ($uploaded_images as $key => $one_uploaded_image) {
-
       if ($one_uploaded_image->isValid()) 
       {
         $destinationPath = 'img/uploads'; // upload path
@@ -115,7 +125,7 @@ class ImageController extends Controller {
       }
       else {
         // sending back with error message.
-        Session::flash('error '.($key+1).'', 'uploaded file' .($key+1). 'is not valid');
+        session()->flash('error '.($key+1).'', 'uploaded file' .($key+1). 'is not valid');
         return Redirect::to('images.create');
       }
 
@@ -127,12 +137,8 @@ class ImageController extends Controller {
       $image_object->save();
      
     }
-    Session::flash('success', 'Upload successfully');
-    
-    return redirect()->route('cars.index');
-    //return \Redirect::route('admin.products.edit', 
-     //   array($product->id))->with('message', 'Product added!');
-    
+    session()->flash('flash_success_compl_message', 'Il veicolo e stato creato!');
+    return redirect()->to('cars/completion')->with('car', $car);
 
   }
 
@@ -144,7 +150,8 @@ class ImageController extends Controller {
    */
   public function show($id)
   {
-    
+    $images = Image::where('car_id', '=', $id)->get();
+    return view('cars.images.show')->with(['images'=> $images, 'car_id' => $id]);
   }
 
   /**
@@ -153,20 +160,70 @@ class ImageController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function edit($id)
+  public function edit($car_id)
   {
-    
+    $images = Image::where('car_id', '=', $car_id)->get();
+    $count_images_in_db = $images->count();
+    return view('cars.images.edit')->with(['images'=> $images, 'car_id' => $car_id, 'count_images_in_db' => $count_images_in_db]);
   }
 
   /**
    * Update the specified resource in storage.
    *
-   * @param  int  $id
+   * @param  int  $id = car->id
    * @return Response
    */
-  public function update($id)
+  public function update($car_id)
   {
+    //Image::where('car_id', '=', $id)->get();
+    $count_images_in_db = Image::where('car_id', '=', $car_id)->count();
+
+    $new_uploaded_images = Input::file('newimagesUpload');
+    $count_new_uploaded_images = count($new_uploaded_images);
+
+    if (($count_images_in_db + $count_new_uploaded_images) > 12) {
+       session()->flash('flash_error_count_total_images_message', 'Hai piu di 12 immagini in totale, elimina prima le immagini originali!');
+      return redirect()->route('cars.images.edit', $car_id);
+    } else {true;}
     
+    foreach ($new_uploaded_images as $key => $one_uploaded_image) {  
+      /*
+      // setting up rules
+      $rules = array('image' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
+      // doing the validation, passing post data, rules and the messages
+      $validator = Validator::make($image, $rules);
+      if ($validator->fails()) {
+      // send back to the page with the input data and errors
+      return redirect()->route('images.create')->withInput()->withErrors($validator);
+      }
+        else {
+      // checking file is valid.
+      */
+
+      if ($one_uploaded_image->isValid()) 
+      {
+        $destinationPath = 'img/uploads'; // upload path
+        $extension = $one_uploaded_image->getClientOriginalExtension(); // getting image extension
+        $fileName = date("y-m-d-h-i-s").'-'.uniqid().'.'.$extension; // renameing image
+        $one_uploaded_image->move($destinationPath, $fileName); // uploading file to given path
+        
+      }
+      else {
+        // sending back with error message.
+        session()->flash('error '.($key+1).'', 'uploaded file' .($key+1). 'is not valid');
+        return Redirect::to('images.create');
+      }
+
+      // create object and FK in image table
+      $image_object = new Image();
+      $image_object->car_id = $car_id;
+      $image_object->location = 'img/uploads/'.$fileName;
+      $image_object->is_main = 0;
+      $image_object->save();
+     
+    }
+    session()->flash('flash_success_compl_img_message', 'Altri '.$count_new_uploaded_images.' immagini sono stati aggiunti!');
+    return redirect()->to(route('cars.images.edit', $car_id));
   }
 
   /**
@@ -180,9 +237,14 @@ class ImageController extends Controller {
     
   }
 
-  public function check_the_session()
+  public function ne($id)
   {
     
+  }
+
+  public function storenewimages($id)
+  {
+    # code...
   }
   
 }

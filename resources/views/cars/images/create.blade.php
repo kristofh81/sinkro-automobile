@@ -1,8 +1,7 @@
 @extends('app')
 
-
 @section('content')
-<h1 style="text-align:center">Car Creation Page</h1><br>
+<h1 style="text-align:center">Crea veicolo </h1><br>
 <div class="container-fluid">
   	<div class="row">
     	<div class="col-md-8 col-md-offset-2">
@@ -28,55 +27,54 @@
 								</thead>
 								<tbody id="table-body">
 									<tr id="preview">
-										<td>
-											<img src="../img/image-example.png" align="middle" style="width:80px;height:70px;"><br>Immagine
+										<td>&nbsp;
+											<img src="../../img/image-example.png" style="width:80px;height:70px;">
+											<br>&nbsp;&nbsp;&nbsp;&nbsp;Immagine
 										</td>
-										<td>
-											<img src="../img/image-example.png" align="middle" style="width:80px;height:70px;">
+										<td>&nbsp;&nbsp;
+											<img src="../../img/image-example.png" style="width:80px;height:70px;">
 										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
+										<td>&nbsp;&nbsp;
+											<img src="../../img/image-example.png" style="width:80px;height:70px;">
 										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
+										<td>&nbsp;&nbsp;
+											<img src="../../img/image-example.png" style="width:80px;height:70px;">
 										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
-										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
-										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
-										</td>									
+									
 									</tr>
 									<tr id="preview2">
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
-											<br>Immagine
+										<td>&nbsp;
+											<img src="../../img/image-example.png" style="width:80px;height:70px;">
+											<br>&nbsp;&nbsp;&nbsp;&nbsp;Immagine
 										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
+										<td>&nbsp;&nbsp;
+											<img src="../../img/image-example.png" style="width:80px;height:70px;">
 										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
+										<td>&nbsp;&nbsp;
+											<img src="../../img/image-example.png" style="width:80px;height:70px;">
 										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
+										<td>&nbsp;&nbsp;
+											<img src="../../img/image-example.png" style="width:80px;height:70px;">
 										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
+
+									</tr>
+									<tr id="preview3">
+										<td>&nbsp;
+											<img src="../../img/image-example.png" align="middle" style="width:80px;height:70px;"><br>&nbsp;&nbsp;&nbsp;&nbsp;Immagine
 										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
+										<td>&nbsp;&nbsp;
+											<img src="../../img/image-example.png" align="middle" style="width:80px;height:70px;">
 										</td>
-										<td>
-											<img src="../img/image-example.png" style="width:80px;height:70px;">
+										<td>&nbsp;&nbsp;
+											<img src="../../img/image-example.png" style="width:80px;height:70px;">
+										</td>
+										<td>&nbsp;&nbsp;
+											<img src="../../img/image-example.png" style="width:80px;height:70px;">
 										</td>
 									</tr>								
 								</tbody>			
 							</table>
-							<p>Max. 14 immagini da inserire</p>
+							<p>Max. 12 immagini da inserire</p>
 	
 						<a href="">Elimina tutte le immagini</a>
 						</div>
@@ -104,6 +102,7 @@ function handleFiles(files) {
 	//preview = tr, put placeholders
 	var preview = document.getElementById("preview");
 	var preview2 = document.getElementById("preview2");
+	var preview3 = document.getElementById("preview3");
 
 	//row of placeholder images
 	function placeholdimg(arg) {
@@ -114,6 +113,7 @@ function handleFiles(files) {
 
    placeholdimg(preview);
    placeholdimg(preview2);
+   placeholdimg(preview3);
    	
    	//put away pictures
 	function putfiles (min, max, parentEl) {
@@ -142,8 +142,9 @@ function handleFiles(files) {
   		}
 	}
 	
-	putfiles(0, 7,preview); 	
-  	putfiles(7, 14,preview2);
+	putfiles(0, 4,preview); 	
+  	putfiles(4, 8,preview2);
+  	putfiles(8, 12,preview3);
   	
 }
 </script>

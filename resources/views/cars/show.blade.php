@@ -20,9 +20,9 @@
 							{{ $mark->name }}
 						@endforeach
 
-						@foreach ($images as $image)
+						
 							<img src="../{{ $image->location }}">
-						@endforeach
+						
 
 						<br>
 						

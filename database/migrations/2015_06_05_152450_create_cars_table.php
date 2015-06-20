@@ -14,7 +14,8 @@ class CreateCarsTable extends Migration {
 			$table->integer('potency')->nullable();
 			$table->integer('mileage');
 			$table->string('doors')->nullable();
-			$table->integer('fuel_type')->nullable();
+			$table->string('gears')->nullable();
+			$table->string('fuel_type')->nullable();
 			$table->string('cilinders', 6)->nullable();
 			$table->date('immatriculation_date')->nullable();
 			$table->date('revision_expiry_date')->nullable();
