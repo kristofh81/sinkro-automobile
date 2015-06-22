@@ -76,14 +76,14 @@
 							</table>
 							<p>Max. 12 immagini da inserire</p>
 	
-						<a href="">Elimina tutte le immagini</a>
+						<a href="" class="btn btn-warning">Cancella tutte le immagini in questa pagina</a>
 						</div>
 						
 					</div>
 				</div>
 					<!--just out panel right align!-->
 					<div style="text-align:right">
-						{!! Form::submit('Completa &gt;&gt;', array('class' => 'btn btn-default')) !!}
+						{!! Form::submit('Completa &gt;&gt;', array('class' => 'btn btn-lg btn-default')) !!}
 					</div>
 
 					{!! Form::close() !!}					

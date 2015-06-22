@@ -12,5 +12,5 @@
 				'Ibrida (diesel/elettrica)' => 'Ibrida -> (diesel/elettrica)',
 				'Idrogeno' => 'Idrogeno',
 				'Altro' => 'Altro',
-			), 'key', array('class' => 'form-control')); 
+			), null, array('class' => 'form-control')); 
 			!!}

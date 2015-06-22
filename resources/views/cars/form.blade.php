@@ -1,11 +1,11 @@
 			<div class="form-group row">
 				<div class='col-md-6'>
-					{!! Form::label('categories_id', 'Categories_id: *') !!}
+					{!! Form::label('Categoria: *') !!}
 					{!! Form::select('category', array(
 					'0' => 'Seleziona',
 					'Usato' => 'Usato',
 					'Nuovo' => 'Nuovo',
-					), 'key', array('class' => 'form-control')) !!}
+					), null , array('class' => 'form-control')) !!}
 				</div>
 			</div>
 		<hr>
@@ -79,7 +79,6 @@
 					@include('cars.form-partials.colors')								
 			</div>
 		<hr>
-
 			<div class="form-group row">
 				<div class='col-md-4'>
 					{!! Form::label('immatriculation_date', 'immatriculation_date: *') !!}
@@ -98,17 +97,17 @@
 			<div class="form-group row">
 				<div class='col-md-4'>
 					{!! Form::label('revision_expiry_date', 'Revision_expiry_date:') !!}
-					{!! Form::text('revision_expiry_date', date('d/m/Y'), 
+					{!! Form::text('revision_expiry_date', ($car==='create' ? date('d/m/Y') : null) , 
 		                    array(
 		                          'class'=>'form-control calendar', 
-		                          'id'=>'')) !!}
+		                          'placeholder'=> 'gg/mm/aaaa')) !!}
 				</div>		
 				<div class='col-md-4'>
 					{!! Form::label('bollino_blu_expiry_date', 'Bollino_blu_expiry_date:') !!}
-					{!! Form::text('bollino_blu_expiry_date', date('d/m/Y'), 
+					{!! Form::text('bollino_blu_expiry_date', ($car==='create' ? date('d/m/Y') : null) , 
 		                    array(
 		                          'class'=>'form-control calendar', 
-		                          'id'=>'')) !!}
+		                          'placeholder'=> 'gg/mm/aaaa')) !!}
 				</div>
 				<div class='col-md-2'>
 					{!! Form::label('torevised', 'toberevised:') !!}
@@ -129,8 +128,8 @@
 					{!! Form::label('accident_history', 'Accident_history: *') !!}
 					{!! Form::select('accident_history', array(
 					'0' => 'Seleziona', 
-					'1' => 'Non incidentata', 
-					'2' => 'Incidentata'), null, array('class' => 'form-control')) !!}
+					'NonIncidentata' => 'Non incidentata', 
+					'Incidentata' => 'Incidentata'), null, array('class' => 'form-control')) !!}
 				</div>
 				<div class='col-md-4'>
 					{!! Form::label('travel_ability', 'Travel_ability:') !!}
@@ -138,7 +137,6 @@
 				</div>					
 			</div>
 		<hr>
-
 			<div class="form-group row">
 				<div class='col-md-4'>
 					{!! Form::label('insert_code', 'Insert_code:') !!}
@@ -161,7 +159,6 @@
 				</div>				
 			</div>
 		<hr>
-
 			<div class="form-group row">
 				<h3>Emissioni e consumo energetico</h3>
 					{!! Form::label('consumptionemissions_id', 'Consumptionemissions_id:') !!}
@@ -176,7 +173,6 @@
 
 			</div>
 		<hr>		
-
 			<div class="form-group row">
 				<h3>Descrizione</h3>	
 				<div class='col-md-12'>
@@ -185,7 +181,6 @@
 				</div>
 			</div>
 		<hr>		
-
 			<div class="form-group row">
 				<div class='col-md-4'>
 				{!! Form::label('price', 'Price: *') !!}
@@ -202,8 +197,7 @@
 					</div>
 				</div>
 			</div>
-			<hr>
-
+		<hr>
 			<div class="form-group row">
 				<div class='col-md-4'>
 					{!! Form::label('publish_flag', 'Publish_flag:') !!}
@@ -214,6 +208,4 @@
 					{!! Form::checkbox('reserved_flag') !!}
 				</div>
 			</div>
-			<hr>			
-
-
+		<hr>

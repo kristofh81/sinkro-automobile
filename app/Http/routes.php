@@ -15,7 +15,8 @@
 
 //Route::get('cars/images-admin/{car_id}', 'ImageController@show');
 //Route::get('cars/images-admin/edit/{car_id}', 'ImageController@edit');
-//Route::post('cars/images/{car_id}/edit', 'ImageController@storenewimages');
+Route::get('cars/images/delete-all-images/{car_id}', 'ImageController@destroyall');
+
 
 
 
@@ -32,7 +33,7 @@ Route::resource('consumptionemissions', 'ConsumptionemissionController');
 Route::resource('characteristics', 'CharacteristicController');
 Route::resource('versions', 'VersionController');
 Route::resource('marks', 'MarkController');
-
+Route::get('cars/completion', 'CarController@completion');
 /*
 Route::get('/', 'WelcomeController@index');
 

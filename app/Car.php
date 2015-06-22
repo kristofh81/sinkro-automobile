@@ -52,10 +52,20 @@ class Car extends Model {
 	* convert into time format ('Y-m-d')
 	*
 	*/
-	public static function dbDateFormat($param="00/00/0000")
+	public static function dbDateFormat($datefrominput)
 	{
-		$newDateString = date_create_from_format("d/m/Y", $param);
+		$newDateString = date_create_from_format("d/m/Y", $datefrominput);
 		return $newDateString->format("Y-m-d");
+	}
+
+	/**
+	* convert into time format ('d/m/Y')
+	*
+	*/
+	public static function frontDateFormat($datefromdb)
+	{
+		$newDateString = date_create_from_format("Y-m-d", $datefromdb);
+		return $newDateString->format("d/m/Y");
 	}
 
 	/**
@@ -67,4 +77,12 @@ class Car extends Model {
 		$query->where('publish_flag', '=', '1');
 	}
 
+	/**
+	* scope published cars in cars.index
+	*
+	*/
+	//public function getValueAttribute()
+	//{
+	//	return $this->;
+	//}
 }

@@ -7,3 +7,47 @@
 	margin-right: auto;
 	margin-left: auto;
 }
+
+.img-button{
+	margin: -70px 0 0 -31px;
+}
+
+.imglist{
+	width:150px;
+	height:100px;
+}
+.images-car-li {
+	margin:2px;
+}
+
+.arrow-up-scrolltop{
+	width:20px; 
+	height:20px;
+}
+.scrollToTop{
+	padding:10px; 
+	text-align:center; 
+	background: white;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	bottom:75px;
+	right:40px;
+	display:none;
+	z-index: 999;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+}
+@media all and (max-width: 800px) {
+    .scrollToTop {
+        bottom:0;
+		right:0;
+		padding: 5px;
+    }
+    .arrow-up-scrolltop{
+	width:10px; 
+	height:10px;
+}
+}

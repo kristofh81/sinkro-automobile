@@ -4,16 +4,16 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading">More info on <strong></strong> :</div>
+				<div class="panel-heading"><h4>Immagini della machina: <strong>{{$car_id}}</strong> :</h4></div>
 				<div class="panel-body">
-					
+					@include('errors.errorlist')
 					<div class="form-group row">
 						<div class='col-md-8'>
 							<div class="well">
-							<h4>Immagini della machina:</h4>
-								<ul class="list-inline">	
+							<p>Immagini attuali della machina:</p>
+								<ul class="list-inline images">	
 									@foreach ($images as $image)
-									<li><img src="../../{{ $image->location }}" style="width:150px;height:100px;"></li>
+									<li class="images-car-li"><img src="../../{{ $image->location }}" class="imglist"></li>
 									@endforeach						
 								</ul>
 							</div>
@@ -25,21 +25,20 @@
                         		</div>
                         		<div class="panel-body">
                         	    	<ul class="list-unstyled">
-										<li><a href="{{action('ImageController@edit', $car_id)}}" class="btn btn-default btn-block">Aggiungi altri immagini</a></li>
-										<li><a href="{{action('ImageController@edit', $car_id)}}" class="btn btn-default btn-block">Elimina e scelgi altri</a></li>
-										<li><a href="" class="btn btn-default btn-block">Elimina tutto</a></li>
-										<li><a href="{{URL::previous()}}" class="btn btn-default btn-block">Indietro</a></li>
+										<li><a href="{{action('ImageController@edit', $car_id)}}" class="btn btn-default btn-block">Gestione immagini</a></li>
+										<li><a href="{{route('cars.show', $car_id)}}" class="btn btn-default btn-block">Torna alla machina</a></li>
+										<li><a href="{{route('cars.index')}}" class="btn btn-default btn-block">Torna all' index dei veicoli</a></li>
 									</ul>
                         		</div>
                         		<div class="panel-footer">
-                        	    	Panel Footer
+                        	    	
                         		</div>
                     		</div><!--end of panel-primary-->
                     	</div>
 					</div>
 				</div>
 				</div>
-				<a href="{{URL::previous()}}" class="btn btn-default">&lt;&lt;Indietro alla lista</a>
+				<a href="{{route('cars.index')}}" class="btn btn-default">&lt;&lt;Indietro alla lista</a>
 
 			</div>
 		</div>

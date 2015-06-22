@@ -8,11 +8,7 @@ class CreateForeignKeys extends Migration {
 
 	public function up()
 	{
-		Schema::table('cars', function(Blueprint $table) {
-			$table->foreign('marks_id')->references('id')->on('marks')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
+		/*
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('models_id')->references('id')->on('models')
 						->onDelete('cascade')
@@ -24,13 +20,9 @@ class CreateForeignKeys extends Migration {
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
+		*/
 		Schema::table('cars', function(Blueprint $table) {
 			$table->foreign('colors_id')->references('id')->on('colors')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('cars', function(Blueprint $table) {
-			$table->foreign('nations_id')->references('id')->on('nations')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
@@ -49,18 +41,12 @@ class CreateForeignKeys extends Migration {
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('marks', function(Blueprint $table) {
-			$table->foreign('model_id')->references('id')->on('models')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
+
 	}
 
 	public function down()
 	{
-		Schema::table('cars', function(Blueprint $table) {
-			$table->dropForeign('cars_mark_id_foreign');
-		});
+		/*
 		Schema::table('cars', function(Blueprint $table) {
 			$table->dropForeign('cars_models_id_foreign');
 		});
@@ -68,11 +54,9 @@ class CreateForeignKeys extends Migration {
 		Schema::table('cars', function(Blueprint $table) {
 			$table->dropForeign('cars_versions_id_foreign');
 		});
+		*/
 		Schema::table('cars', function(Blueprint $table) {
 			$table->dropForeign('cars_colors_id_foreign');
-		});
-		Schema::table('cars', function(Blueprint $table) {
-			$table->dropForeign('cars_nations_id_foreign');
 		});
 		Schema::table('cars', function(Blueprint $table) {
 			$table->dropForeign('cars_consumptionemissions_id_foreign');
@@ -83,8 +67,6 @@ class CreateForeignKeys extends Migration {
 		Schema::table('cars', function(Blueprint $table) {
 			$table->dropForeign('cars_images_id_foreign');
 		});
-		Schema::table('marks', function(Blueprint $table) {
-			$table->dropForeign('marks_model_id_foreign');
-		});
+
 	}
 }

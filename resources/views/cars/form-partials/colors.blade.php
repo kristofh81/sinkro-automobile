@@ -15,7 +15,7 @@
 				'10' => 'Verde',
 				'11' => 'Viola',
 				'12' => 'Altro',
-			), 'key', array('class' => 'form-control')); !!}
+			), null, array('class' => 'form-control')); !!}
 		</div>
 		<div class='col-md-4'>
 			{!! Form::label('manufacturer', 'Manufacturer:') !!}

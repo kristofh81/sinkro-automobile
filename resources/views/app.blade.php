@@ -32,12 +32,15 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Laravel</a>
+				<a class="navbar-brand" href="#">Automobile</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
+					<li><a href="{{ url('/cars') }}">Home</a></li>
+				</ul>
+				<ul class="nav navbar-nav">
+					<li><a href="{{ url('/cars') }}">Admin-panel</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -58,12 +61,14 @@
 	</nav>
 
 	@yield('content')
+		
 	<br><br>
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="{{ asset('/js/scrollscript.js') }}"></script>
 	@yield('scripts')
 
 </body>

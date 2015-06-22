@@ -12,20 +12,22 @@
 								<thead>
                                        <tr>
                                             <th>Immagine</th>
+                                            <th>Marca</th>
                                             <th>Categoria</th>
                                             <th>Info</th>
-                                            <th>Dettagli</th>
-                                            <th>Immagini</th>
-                                            
+                                            <th></th>
+                                            <th></th>                                         
                                         </tr>
                                 </thead>
-
+    		
 								<tbody id="table-body">
-									@foreach ($cars as $car)
+									<?php foreach ($cars as $key => $car) {?>
 									<tr>
+										<td>										
+											<a href="{{ route('cars.show', $car->id) }}"><img src="{{ $images[$key]['location'] }}" class="imglist"></a>
+										</td>
 										<td>
-											
-											<img src="../../" style="width=250px;height=150px;">
+											{{ $marks[$key]['name'] }}
 										</td>	
 										<td>
 											{{ $car->category }}
@@ -35,24 +37,24 @@
 												<li>{{ $car->category }}</li>
 												<li>{{ $car->type }}</li>
 												<li>{{ $car->fuel_type }}</li>
-												<li>{{ $car->mileage }}</li>
-												<li>{{ $car->price }}</li>
+												<li>{{ $car->mileage }} km</li>
+												<li>{{ $car->price }} €</li>
 											</ul>
 										</td>	
 										<td>
-											<a href="{{ route('cars.show', $car->id) }}">Dettagli della machina</a>
+											<a href="{{ route('cars.show', $car->id) }}" class ="btn btn-default">Dettagli</a>
 										</td>
 										<td>
-											<a href="cars/images/{{$car->id}}">Immagini della machina</a>
+											<a href="cars/images/{{$car->id}}" class ="btn btn-default">Immagini</a>
 										</td>
 								
 									</tr>
-									@endforeach
+									<?php } ?>
 								</tbody>			
 							</table>
 							
 	
-						<a href="{{ route('cars.create') }}">Crea nuova machina</a>
+						<a href="{{ route('cars.create') }}" class ="btn btn-default">Crea nuova machina</a>
 					</div>
 				</div>
 
@@ -61,4 +63,9 @@
 		</div>
 	</div>
 </div>
+<a href="#" class="scrollToTop">
+	<button type="button" class="btn btn-default btn-circle btn-lg">
+        <img src="img/arrow-up.png" class="arrow-up-scrolltop">
+    </button>
+</a>
 @endsection

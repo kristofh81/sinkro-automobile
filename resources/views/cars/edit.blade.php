@@ -8,10 +8,12 @@
 				<div class="panel-heading">Edit Dati del veicolo</div>
 					<div class="panel-body">
         			@include('errors.errorlist')
-        			@foreach ($images as $image)
-							<img src="../../{{ $image->location }}" style="width=250px;height=150px;">
-					@endforeach
-
+        			<div class="well">
+        				@foreach ($images as $image)
+							<img src="../../{{ $image->location }}" style="width:100px;height:75px;margin:1px;">
+						@endforeach
+						<hr><a href="{{route('cars.images.show' , $car->id)}}" class="btn btn-default btn-xs">Gestione immagini &gt;&gt;</a>
+					</div>
 					{!! Form::model($car, array('route' => 'cars.store', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
 					@include('cars.form')
 					{!! Form::close() !!}
@@ -19,10 +21,20 @@
 				</div>
 				<!--just outer panel!-->
 				<div style="text-align:right">
-					{!! Form::submit('Immagini &gt;&gt;', array('class' => 'btn btn-default')) !!}
+					{!! Form::submit('Aggiorna', array('class' => 'btn btn-default')) !!}
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+@endsection
+<a href="#" class="scrollToTop">
+	<button type="button" class="btn btn-default btn-circle btn-lg">
+        <img src="img/arrow-up.png" class="arrow-up-scrolltop">
+    </button>
+</a>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('/js/myscripts.js') }}"></script>
 @endsection

@@ -1,16 +1,8 @@
+//Datepicker on forms
 $(function() {
-   $( ".calendar" ).datepicker({ dateFormat: "dd/mm/yy", maxDate: "+10Y" }); 
+   $( ".calendar" ).datepicker({ changeMonth: true, changeYear: true, dateFormat: "dd/mm/yy", maxDate: "+10Y" }); 
 });
 
-//datepicker
-$(function() {
-  $( ".calendar-past" ).datepicker({ 
-    changeMonth: true,
-    changeYear: true,
-    minDate: "-30Y",
-    dateFormat: "dd/mm/yy"
-  });
-});
 
 //select buttons
 $(function() {

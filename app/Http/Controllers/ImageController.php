@@ -29,7 +29,7 @@ class ImageController extends Controller {
    */
   public function index()
   {
-    return view('images');
+    return view('errors.503');
   }
 
   /**
@@ -83,10 +83,11 @@ class ImageController extends Controller {
     //first create a car object and write to DB
     $car = Car::create($input_car);
 
-    //attach id on pivot tables
+    // then attach id on pivot tables
     $car->marks()->attach($input_marks_id);
     $car->nations()->attach($input_nations_id);
 
+    //fill car object's FK
     $car->colors_id = $color->id;
     $car->consumptionemissions_id = $cons->id;
     $car->characteristics_id = $char->id;
@@ -138,14 +139,14 @@ class ImageController extends Controller {
      
     }
     session()->flash('flash_success_compl_message', 'Il veicolo e stato creato!');
-    return redirect()->to('cars/completion')->with('car', $car);
+    return redirect()->to(route('cars.completion', $car));
 
   }
 
   /**
    * Display the specified resource.
    *
-   * @param  int  $id
+   * @param  int  $id = id of the CAR (car->id)!!
    * @return Response
    */
   public function show($id)
@@ -157,7 +158,7 @@ class ImageController extends Controller {
   /**
    * Show the form for editing the specified resource.
    *
-   * @param  int  $id
+   * @param  int  $car_id = id of the CAR (car->id)!!
    * @return Response
    */
   public function edit($car_id)
@@ -170,12 +171,12 @@ class ImageController extends Controller {
   /**
    * Update the specified resource in storage.
    *
-   * @param  int  $id = car->id
+   * @param  int  $car_id = id of the CAR (car->id)!!
    * @return Response
    */
   public function update($car_id)
   {
-    //Image::where('car_id', '=', $id)->get();
+  
     $count_images_in_db = Image::where('car_id', '=', $car_id)->count();
 
     $new_uploaded_images = Input::file('newimagesUpload');
@@ -229,23 +230,33 @@ class ImageController extends Controller {
   /**
    * Remove the specified resource from storage.
    *
-   * @param  int  $id
+   * @param  int  $id = id of image itself!
    * @return Response
    */
   public function destroy($id)
   {
-    
+    $image = Image::findOrFail($id);
+    $car_id = $image->car_id;
+    $image->delete();
+
+    return redirect()->to(route('cars.images.edit', $car_id));
   }
 
-  public function ne($id)
+/**
+   * Remove the specified resource from storage.
+   *
+   * @param  int  $car_id = id of car!
+   * @return Response
+   */
+  public function destroyall($car_id)
   {
-    
+    $images = Image::where('car_id', '=', $car_id)->get();
+    foreach ($images as $image) {
+      Image::destroy($image->id);
+    }
+      return redirect()->to(route('cars.images.edit', $car_id));
   }
 
-  public function storenewimages($id)
-  {
-    # code...
-  }
   
 }
 
