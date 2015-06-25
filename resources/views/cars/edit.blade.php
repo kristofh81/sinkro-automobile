@@ -28,7 +28,7 @@
 		</div>
 	</div>
 </div>
-@endsection
+
 <a href="#" class="scrollToTop">
 	<button type="button" class="btn btn-default btn-circle btn-lg">
         <img src="img/arrow-up.png" class="arrow-up-scrolltop">
