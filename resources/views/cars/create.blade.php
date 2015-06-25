@@ -2,12 +2,12 @@
 
 @section('content')
 <h1 style="text-align:center">Car Creation Page</h1><br>
-<p style="text-align:center"><strong>Dati del veicolo</strong>&nbsp;&nbsp;/&nbsp;&nbsp;Immagini&nbsp;&nbsp;/&nbsp;&nbsp;Completato</p>
+<p style="text-align:center"><strong>Dati del veicolo</strong>&nbsp;&nbsp;/&nbsp;&nbsp;Immagini&nbsp;&nbsp;/&nbsp;&nbsp;Completato</p><br>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-default">
-				<div class="panel-heading"><h3>1. Dati del veicolo</h3></div>
+				<div class="panel-heading"><h4>1. Dati del veicolo</h4></div>
 					<div class="panel-body">
         			@include('errors.errorlist')
 
@@ -17,7 +17,7 @@
 				</div>
 				<!--just outer panel!-->
 				<div style="text-align:right">				
-					{!! Form::submit('Immagini &gt;&gt;', array('class' => 'btn btn-default btn-lg')) !!}
+					{!! Form::submit('Immagini &gt;&gt;', array('class' => 'btn btn-default')) !!}
 				</div>
 					{!! Form::close() !!}
 			</div>

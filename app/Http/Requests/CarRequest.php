@@ -23,39 +23,30 @@ class CarRequest extends Request {
 	public function rules()
 	{
 		return [
-		/*
+
 			'category' 				=> 'alpha',
-			'type' 					=> '',
-			'potency' 				=> '',
 			'mileage' 				=> 'required|numeric',
-			'doors' 				=> '',
-			'fuel_type' 			=> '',
 			'cilinders' 			=> 'numeric',
 			'revision_expiry_date' 	=> 'date_format:d/m/Y',
 			'bollino_blu_expiry_date' => 'date_format:d/m/Y',
-			'total_owners' 			=> '',
 			'accident_history' 		=> 'required|alpha',
 			'travel_ability' 		=> 'boolean',
-			'insert_code' 			=> '',
-			'vin' 					=> '',
 			'availability_period' 	=> 'date_format:d/m/Y',
-			'description' 			=> 'required',
 			'price' 				=> 'required|numeric',
 			'price_b2b' 			=> 'numeric',
 			'publish_flag'			=> 'boolean',
 			'reserved_flag' 		=> 'boolean',
 			'marks_id' 				=> 'required|numeric|min:1',
-			'models_id' 			=> '',
-			'types_id' 				=> '',
-			'versions_id' 			=> '',
-			'colors_id' 			=> '',
 			'nations_id' 			=> 'required|numeric|min:1',
-
-			'consumptionemissions_id' => '',
-			'characteristics_id' 	=> '',
+			'consumption_urban' 	=> 'numeric',
+			'consumption_suburban' 	=> 'numeric',
+			'consumption_general' 	=> 'numeric',
+			'emission_co2' 			=> 'numeric',
+			'class_energy_efficiency' => 'numeric',
+			'color_type' 			=> 'numeric',
 			'immatriculation_date_month'	=> 'required|numeric',
 			'immatriculation_date_year'	=> 'required|numeric',
-			*/
+
 			];
 	}
 

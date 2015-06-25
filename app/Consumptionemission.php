@@ -14,4 +14,16 @@ class Consumptionemission extends Model {
 		return $this->belongsTo('App\Car');
 	}
 
+	/**
+	* static setColumns for cars.update
+	* params $array, $object
+	* return updates the object
+	*/
+	public static function setColumns($input_array, $object_type)
+	{
+		foreach ($input_array as $key => $value) {
+      		$object_type->$key = $value;
+    	}
+    	$object_type->update();
+	}
 }

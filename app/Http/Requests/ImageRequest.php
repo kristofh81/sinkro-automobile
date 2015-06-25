@@ -22,8 +22,9 @@ class ImageRequest extends Request {
 	 */
 	public function rules()
 	{
+
 		return [
-      	//'filesUpload'       => 'required|image'
+      	'imagesUpload'       => 'required|max:20000',
     	];
 	}
 

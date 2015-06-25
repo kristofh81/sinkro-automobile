@@ -9,11 +9,11 @@ class CreateConsumptionemissionsTable extends Migration {
 	{
 		Schema::create('consumptionemissions', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('specifications')->nullable();
-			$table->integer('consumption_urban')->nullable();
-			$table->integer('consumption_suburban')->nullable();
-			$table->integer('consumption_general')->nullable();
-			$table->integer('emission_co2')->nullable();
+			$table->integer('specifications')->nullable();
+			$table->string('consumption_urban')->nullable();
+			$table->string('consumption_suburban')->nullable();
+			$table->string('consumption_general')->nullable();
+			$table->string('emission_co2')->nullable();
 			$table->string('class_energy_efficiency', 12)->nullable();
 			$table->timestamps();
 		});

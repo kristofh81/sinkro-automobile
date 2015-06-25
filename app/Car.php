@@ -2,6 +2,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Nation;
+use Carbon\Carbon;
 
 class Car extends Model {
 
@@ -78,11 +80,42 @@ class Car extends Model {
 	}
 
 	/**
-	* scope published cars in cars.index
+	* scope for cars.formpartials.nations for the edit form
 	*
 	*/
-	//public function getValueAttribute()
-	//{
-	//	return $this->;
-	//}
+	public function nationsList($id)
+	{
+		return \DB::table('car_nation')->where('car_id', $id)->first()->nation_id;
+	}
+
+	/**
+	* scope for cars.formpartials.nations for the edit form
+	*
+	*/
+	public function marksList($id)
+	{
+		return \DB::table('car_mark')->where('car_id', $id)->first()->mark_id;
+	}
+
+	/**
+	* static setColumns for cars.update
+	*
+	*/
+	public static function setColumns($input_array, $object_type)
+	{
+		foreach ($input_array as $key => $value) {
+      		$object_type->$key = $value;
+    	}
+    	$object_type->update();
+	}
+
+	/**
+	* set diff date for cars.show
+	*
+	*/
+	public function getCreatedAt($date)
+	{
+		$carbondate = Carbon::parse($date);
+		return $carbondate->diffInDays();
+	}
 }

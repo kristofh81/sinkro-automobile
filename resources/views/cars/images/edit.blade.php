@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-default">
 				<div class="panel-heading"><h4>Immagini della machina: <strong>{{$car_id}}</strong> :</h4></div>
 				<div class="panel-body">
@@ -36,7 +36,7 @@
 
 									{!! Form::label('location_new', 'Scelgi altri immagini: *') !!}
 								
-									{!! Form::file('newimagesUpload[]', array('id'=>'fileElem', 'multiple', 'required', 'accept' => 'image/*', 'onChange'=>'handleFiles(this.files);')); !!}
+									{!! Form::file('imagesUpload[]', array('id'=>'fileElem', 'multiple', 'required', 'accept' => 'image/*', 'onChange'=>'handleFiles(this.files);')); !!}
 									<br>
 									<div style="text-align:right">
 									{!! Form::submit('Aggiungi &gt;&gt;', array('class' => 'btn btn-sm btn-default')) !!}
@@ -47,13 +47,13 @@
 									<p><strong>Max. 12</strong> immagini da inserire</p>
 									<br>
 									<ul class="list-unstyled">
-										<li><a href="../delete-all-images/{{$car_id}}" class="btn btn-default btn-block">Elimina tutte immagini</a></li>
+										<li><input type = "button" id = "delete-item" value="Elimina tutte immagini" class="btn btn-default btn-block"/></li>
 										<li><a href="{{route('cars.images.show', $car_id)}}" class="btn btn-default btn-block">Indietro</a></li>
+										<div id = "alert_placeholder"></div>
+										
 									</ul>
 								</div>
-								<div class="panel-footer">
-                        		    
-                        		</div>
+
 							</div><!--end of panel-primary-->					
 						</div>
 					</div>
@@ -66,4 +66,18 @@
 
 @endsection
 
+@section('scripts')
+<script type="text/javascript">
+$(document).ready(function(){
+bootstrap_alert = function() {}
+bootstrap_alert.warning = function(message) {
+            $('#alert_placeholder').html('<div class="alert alert-warning"><a class="close" data-dismiss="alert">&times;</a><span>'+message+'</span><br><br><span><a href="../delete-all-images/{{$car_id}}" class="btn btn-outline btn-danger">Elimina</a></span></div>')
+        }
+    
+$('#delete-item').on('click', function() {
+            bootstrap_alert.warning('Sei securo di eliminare?');
+});
 
+});
+</script>
+@endsection

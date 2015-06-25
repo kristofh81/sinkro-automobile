@@ -1,36 +1,38 @@
-	<div class='col-md-6'>
-			{!! Form::label('specifications', 'Specifications:') !!}
+	<div class='col-md-4'>
+			{!! Form::label('specifications', 'Specificazioni:') !!}
 		<br>
-			{!! Form::radio('specifications', '0', true , array('class' => 'radio-button'))!!}non specificato
+			{!! Form::radio('specifications', '0', ($car!=='create' && $consumptionemission->specifications==0? true : false) , '')!!}non specificato
 		<br>
-			{!! Form::radio('specifications', '1', false , array('class' => 'radio-button'))!!}valori approssimativi
+			{!! Form::radio('specifications', '1', ($car!=='create' && $consumptionemission->specifications==1? true : false) , '')!!}valori approssimativi
 		<br>
-			{!! Form::radio('specifications', '2', false , array('class' => 'radio-button'))!!}ai sensi del DP 17 febbraio 2003 n.84
+			{!! Form::radio('specifications', '2', ($car!=='create' && $consumptionemission->specifications==2? true : false) , '')!!}ai sensi del DP 17 febbraio 2003 n.84
 	</div>
 
-	<div class='col-md-6'>
-		{!! Form::label('consumption_urban', 'Consumption_urban:') !!}
+	<div class='col-md-4'>
+		{!! Form::label('consumption_urban', 'Consumo carburante (urbano):') !!}
 		<div class=" input-group">
 			<span class="input-group-addon"><em>(l/100km)</em></span>
-			{!! Form::text('consumption_urban',null, array('class' => 'form-control')) !!}
+			{!! Form::text('consumption_urban',($car!=='create' ? $consumptionemission->consumption_urban : null), array('class' => 'form-control')) !!}
 		</div>
-		{!! Form::label('consumption_suburban', 'Consumption_suburban:') !!}
+		{!! Form::label('consumption_suburban', 'Consumo carburante (extraurbano):') !!}
 		<div class=" input-group">
 			<span class="input-group-addon"><em>(l/100km)</em></span>
-			{!! Form::text('consumption_suburban', null, array('class' => 'form-control')) !!}
+			{!! Form::text('consumption_suburban', ($car!=='create' ? $consumptionemission->consumption_suburban : null), array('class' => 'form-control')) !!}
 		</div>		
-		{!! Form::label('consumption_general', 'Consumption_general:') !!}
+		{!! Form::label('consumption_general', 'Consumption appross.:') !!}
 		<div class=" input-group">
 			<span class="input-group-addon"><em>(l/100km)</em></span>
-			{!! Form::text('consumption_general', null, array('class' => 'form-control')) !!}
-		</div>	
-		{!! Form::label('emission_co2', 'Emission_co2:') !!}
+			{!! Form::text('consumption_general', ($car!=='create' ? $consumptionemission->consumption_general : null), array('class' => 'form-control')) !!}
+		</div>
+	</div>
+	<div class='col-md-4'>	
+		{!! Form::label('emission_co2', 'Emissioni CO2:') !!}
 		<div class=" input-group">
 			<span class="input-group-addon"><em>(g/km)</em></span>
-			{!! Form::text('emission_co2', null, array('class' => 'form-control')) !!}
+			{!! Form::text('emission_co2', ($car!=='create' ? $consumptionemission->emission_co2 : null), array('class' => 'form-control')) !!}
 		</div>
 
-		{!! Form::label('class_energy_efficiency', 'Class_energy_efficiency:') !!}
+		{!! Form::label('class_energy_efficiency', 'Classe di efficienza energia:') !!}
 			{!! Form::select('class_energy_efficiency', array(
 					'0' => 'Seleziona', 
 					'1' => 'euro1', 
@@ -38,5 +40,5 @@
 					'3' => 'euro3', 
 					'4' => 'euro4', 
 					'5' => 'euro5', 
-					'6' => 'euro6'), null, array('class' => 'form-control')) !!}
+					'6' => 'euro6'), ($car!=='create' ? $consumptionemission->class_energy_efficiency : null) , array('class' => 'form-control')) !!}
 	</div>

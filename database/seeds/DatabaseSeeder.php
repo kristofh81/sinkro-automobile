@@ -76,7 +76,7 @@ class MarksTableSeeder extends Seeder {
           ));
     }
 }
-
+/*
 class CarsTableSeeder extends Seeder {
  
     public function run()
@@ -128,4 +128,7 @@ class CarsTableSeeder extends Seeder {
 
           ));
     }
+
 }
+
+*/

@@ -4,88 +4,93 @@
 <h1 style="text-align:center">Crea veicolo </h1><br>
 <div class="container-fluid">
   	<div class="row">
-    	<div class="col-md-8 col-md-offset-2">
-    		<p style="text-align:center">Dati del veicolo&nbsp;&nbsp;/&nbsp;&nbsp;<strong>Immagini</strong>&nbsp;&nbsp;/&nbsp;&nbsp;Completato</p>
+    	<div class="col-md-10 col-md-offset-1">
+    		<p style="text-align:center">Dati del veicolo&nbsp;&nbsp;/&nbsp;&nbsp;<strong>Immagini</strong>&nbsp;&nbsp;/&nbsp;&nbsp;Completato</p><br>
       		<div class="panel panel-default">
-        		<div class="panel-heading">2. Image upload page</div>
-        			
+        		<div class="panel-heading"><h4>2. Scarica Immagini</h4></div>			
         			<div class="panel-body">
         			@include('errors.errorlist')
-						
-					{!! Form::open(array('action' => 'ImageController@store', 'method' => 'POST',  'class' => 'form-horizontal', 'files' => true)) !!}
+						<div class="row">
+							<div class="col-md-10">		
+								{!! Form::open(array('action' => 'ImageController@store', 'method' => 'POST',  'class' => 'form-horizontal', 'files' => true)) !!}
 													
-						{!! Form::label('location', 'Scelgi immagini: *') !!}
-								
-						{!! Form::file('imagesUpload[]', array('id'=>'fileElem', 'multiple', 'required', 'accept' => 'image/*', 'onChange'=>'handleFiles(this.files);')); !!}
-				
-					<br><br>
-						<div class="table-responsive">
-							<table class="table table-bordered">
-								
-								<thead>
-									<strong>Panello immagini</strong>
-								</thead>
-								<tbody id="table-body">
-									<tr id="preview">
-										<td>&nbsp;
-											<img src="../../img/image-example.png" style="width:80px;height:70px;">
-											<br>&nbsp;&nbsp;&nbsp;&nbsp;Immagine
-										</td>
-										<td>&nbsp;&nbsp;
-											<img src="../../img/image-example.png" style="width:80px;height:70px;">
-										</td>
-										<td>&nbsp;&nbsp;
-											<img src="../../img/image-example.png" style="width:80px;height:70px;">
-										</td>
-										<td>&nbsp;&nbsp;
-											<img src="../../img/image-example.png" style="width:80px;height:70px;">
-										</td>
-									
-									</tr>
-									<tr id="preview2">
-										<td>&nbsp;
-											<img src="../../img/image-example.png" style="width:80px;height:70px;">
-											<br>&nbsp;&nbsp;&nbsp;&nbsp;Immagine
-										</td>
-										<td>&nbsp;&nbsp;
-											<img src="../../img/image-example.png" style="width:80px;height:70px;">
-										</td>
-										<td>&nbsp;&nbsp;
-											<img src="../../img/image-example.png" style="width:80px;height:70px;">
-										</td>
-										<td>&nbsp;&nbsp;
-											<img src="../../img/image-example.png" style="width:80px;height:70px;">
-										</td>
-
-									</tr>
-									<tr id="preview3">
-										<td>&nbsp;
-											<img src="../../img/image-example.png" align="middle" style="width:80px;height:70px;"><br>&nbsp;&nbsp;&nbsp;&nbsp;Immagine
-										</td>
-										<td>&nbsp;&nbsp;
-											<img src="../../img/image-example.png" align="middle" style="width:80px;height:70px;">
-										</td>
-										<td>&nbsp;&nbsp;
-											<img src="../../img/image-example.png" style="width:80px;height:70px;">
-										</td>
-										<td>&nbsp;&nbsp;
-											<img src="../../img/image-example.png" style="width:80px;height:70px;">
-										</td>
-									</tr>								
-								</tbody>			
-							</table>
-							<p>Max. 12 immagini da inserire</p>
-	
-						<a href="" class="btn btn-warning">Cancella tutte le immagini in questa pagina</a>
+								{!! Form::label('location', 'Scelgi immagini: *') !!}
+								{!! Form::file('imagesUpload[]', array('id'=>'fileElem', 'multiple', 'required', 'accept' => 'image/*', 'onChange'=>'handleFiles(this.files);')); !!}
+							</div>
 						</div>
-						
+						<br><br>
+						<div class="row">
+							<div class="col-md-10">
+								<div class="table-responsive">
+								<table class="table table-bordered">
+									
+									<thead>
+										<strong>Panello immagini</strong>
+									</thead>
+									<tbody id="table-body">
+										<tr id="preview">
+											<td>&nbsp;
+												<img src="../../img/image-example.png" style="width:80px;height:70px;">
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;Immagine
+											</td>
+											<td>&nbsp;&nbsp;
+												<img src="../../img/image-example.png" style="width:80px;height:70px;">
+											</td>
+											<td>&nbsp;&nbsp;
+												<img src="../../img/image-example.png" style="width:80px;height:70px;">
+											</td>
+											<td>&nbsp;&nbsp;
+												<img src="../../img/image-example.png" style="width:80px;height:70px;">
+											</td>
+										
+										</tr>
+										<tr id="preview2">
+											<td>&nbsp;
+												<img src="../../img/image-example.png" style="width:80px;height:70px;">
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;Immagine
+											</td>
+											<td>&nbsp;&nbsp;
+												<img src="../../img/image-example.png" style="width:80px;height:70px;">
+											</td>
+											<td>&nbsp;&nbsp;
+												<img src="../../img/image-example.png" style="width:80px;height:70px;">
+											</td>
+											<td>&nbsp;&nbsp;
+												<img src="../../img/image-example.png" style="width:80px;height:70px;">
+											</td>
+	
+										</tr>
+										<tr id="preview3">
+											<td>&nbsp;
+												<img src="../../img/image-example.png" align="middle" style="width:80px;height:70px;"><br>&nbsp;&nbsp;&nbsp;&nbsp;Immagine
+											</td>
+											<td>&nbsp;&nbsp;
+												<img src="../../img/image-example.png" align="middle" style="width:80px;height:70px;">
+											</td>
+											<td>&nbsp;&nbsp;
+												<img src="../../img/image-example.png" style="width:80px;height:70px;">
+											</td>
+											<td>&nbsp;&nbsp;
+												<img src="../../img/image-example.png" style="width:80px;height:70px;">
+											</td>
+										</tr>								
+									</tbody>			
+								</table>
+								<p>Inserimento mass. da 12 immagini</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<a href="" class="btn btn-warning">Cancella immagini in questa pagina</a>
+							</div>
+						</div>					
 					</div>
 				</div>
 					<!--just out panel right align!-->
 					<div style="text-align:right">
-						{!! Form::submit('Completa &gt;&gt;', array('class' => 'btn btn-lg btn-default')) !!}
+						{!! Form::submit('Completa &gt;&gt;', array('class' => 'btn btn-default')) !!}
 					</div>
-
 					{!! Form::close() !!}					
 			</div>
 		</div>

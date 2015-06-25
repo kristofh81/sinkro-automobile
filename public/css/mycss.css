@@ -20,6 +20,16 @@
 	margin:2px;
 }
 
+.img-feature{
+	max-width:40%;
+	max-height:40%;
+	opacity: 0.8;
+}
+
+.centered {
+	text-align: center;
+}
+
 .arrow-up-scrolltop{
 	width:20px; 
 	height:20px;

@@ -38,4 +38,18 @@
 		<strong>{{Session::get('flash_success_compl_message')}}</strong>
 	</div>
 @endif
-
+@if (Session::has('flash_first_insert'))
+  <div class="alert alert-info">
+    <strong>{{Session::get('flash_first_insert')}}</strong>
+  </div>
+@endif
+@if (Session::has('flash_deleted_item'))
+  <div class="alert alert-info">
+    <strong>{{Session::get('flash_deleted_item')}}</strong>
+  </div>
+@endif
+@if (Session::has('flash_updated_item'))
+  <div class="alert alert-info">
+    <strong>{{Session::get('flash_updated_item')}}</strong>
+  </div>
+@endif

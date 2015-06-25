@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-default">
 				<div class="panel-heading">Edit Dati del veicolo</div>
 					<div class="panel-body">
@@ -14,15 +14,16 @@
 						@endforeach
 						<hr><a href="{{route('cars.images.show' , $car->id)}}" class="btn btn-default btn-xs">Gestione immagini &gt;&gt;</a>
 					</div>
-					{!! Form::model($car, array('route' => 'cars.store', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
+					{!! Form::model($car, array('action' => ['CarController@update',$car->id], 'method' => 'PATCH', 'class' => 'form-horizontal')) !!}
 					@include('cars.form')
-					{!! Form::close() !!}
+					
 					</div>
 				</div>
 				<!--just outer panel!-->
 				<div style="text-align:right">
 					{!! Form::submit('Aggiorna', array('class' => 'btn btn-default')) !!}
 				</div>
+				{!! Form::close() !!}
 			</div>
 		</div>
 	</div>

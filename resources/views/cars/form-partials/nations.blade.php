@@ -1,4 +1,4 @@
 		{!! Form::select('nations_id', 
 			$nations,
-			 null, array('class' => 'form-control')); 
+			($car!=='create' ? $car->nationsList($car->id) : null), array('class' => 'form-control')); 
 		!!}

@@ -8,13 +8,13 @@
 				<div class="panel-heading">Lista delle machine <em>pubblicate</em>:</div>
 				<div class="panel-body">
 					<div class="table-responsive">
-							<table class="table table-striped table-bordered table-hover">								
+							<table class="table table-striped table-bordered table-hover">							
+							@include('errors.errorlist')	
 								<thead>
                                        <tr>
                                             <th>Immagine</th>
                                             <th>Marca</th>
-                                            <th>Categoria</th>
-                                            <th>Info</th>
+                                            <th class="centered">Info</th>
                                             <th></th>
                                             <th></th>                                         
                                         </tr>
@@ -30,16 +30,18 @@
 											{{ $marks[$key]['name'] }}
 										</td>	
 										<td>
-											{{ $car->category }}
-										</td>
-										<td>
-											<ul>
-												<li>{{ $car->category }}</li>
-												<li>{{ $car->type }}</li>
-												<li>{{ $car->fuel_type }}</li>
-												<li>{{ $car->mileage }} km</li>
-												<li>{{ $car->price }} €</li>
-											</ul>
+											<dl class="dl-horizontal">
+												<dt>categoria:</dt>
+												<dd>{{ $car->category }}</dd>
+												<dt>tipo:</dt>
+												<dd>{{ $car->type }}</dd>
+												<dt>carburante:</dt>
+												<dd>{{ $car->fuel_type }}</dd>
+												<dt>chilometraggio:</dt>
+												<dd>{{ $car->mileage }} km</dd>
+												<dt>prezzo:</dt>
+												<dd>{{ $car->price }} €</dd>
+											</dl>
 										</td>	
 										<td>
 											<a href="{{ route('cars.show', $car->id) }}" class ="btn btn-default">Dettagli</a>
@@ -52,9 +54,6 @@
 									<?php } ?>
 								</tbody>			
 							</table>
-							
-	
-						<a href="{{ route('cars.create') }}" class ="btn btn-default">Crea nuova machina</a>
 					</div>
 				</div>
 

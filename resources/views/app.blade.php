@@ -37,10 +37,17 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/cars') }}">Home</a></li>
+					<li><a href="{{ route('cars.index') }}">Home</a></li>
 				</ul>
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/cars') }}">Admin-panel</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin-panel <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ route('cars.index') }}">Indice macchine</a></li>
+							
+							<li><a href="{{ route('cars.create') }}">Crea nuova macchina</a></li>
+						</ul>
+					</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

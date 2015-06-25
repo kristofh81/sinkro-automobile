@@ -1,5 +1,6 @@
 <?php 
 namespace App\Http\Controllers;
+use Illuminate\Database\Eloquent\ModelNotFoundException;  
 
 class CharacteristicController extends Controller {
 

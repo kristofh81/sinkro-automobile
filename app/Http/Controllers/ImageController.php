@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests\ImageRequest;
 use App\Http\Requests\CarRequest;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -38,19 +37,19 @@ class ImageController extends Controller {
    * @return Response
    */
   public function create()
-  {
-    
+  {   
     return view('cars.images.create');
   }
 
   /**
    * Store a newly created resource in storage.
+   * PART 2 if storing a car : images
    * Request request: retrieve input last request (cars.image.create)
    * Session - 
    *
    * @return Response
    */
-  public function store(Request $request)
+  public function store(Request $request, ImageRequest $imgrequest)
   {
     //check all session variables
     if ($request->session()->has('input_characteristics') && 
@@ -70,7 +69,7 @@ class ImageController extends Controller {
     } else 
     { 
       //return "some input of page 1 has not been set"; 
-      session()->flash('flash_error_session_message', 'Input has been lost during the session');
+      session()->flash('flash_error_session_message', 'I dati sono persi durante la sessione. Riprova.');
       return redirect()->route('cars.create');
     }
     Session::flush();
@@ -79,7 +78,6 @@ class ImageController extends Controller {
     $cons = Consumptionemission::create($input_consumptionemission);
     $char = Characteristic::create($input_characteristics);
 
-    
     //first create a car object and write to DB
     $car = Car::create($input_car);
 
@@ -94,7 +92,7 @@ class ImageController extends Controller {
     $car->save();
 
     //get image files array
-    $uploaded_images = Input::file('imagesUpload');
+    $uploaded_images = $imgrequest->file('imagesUpload');
 
     // validation for number of images upload
     if(count($uploaded_images) > 12 ){
@@ -103,24 +101,12 @@ class ImageController extends Controller {
     } else {true;}
   
     foreach ($uploaded_images as $key => $one_uploaded_image) {  
-      /*
-      // setting up rules
-      $rules = array('image' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
-      // doing the validation, passing post data, rules and the messages
-      $validator = Validator::make($image, $rules);
-      if ($validator->fails()) {
-      // send back to the page with the input data and errors
-      return redirect()->route('images.create')->withInput()->withErrors($validator);
-      }
-        else {
-      // checking file is valid.
-      */
 
       if ($one_uploaded_image->isValid()) 
       {
         $destinationPath = 'img/uploads'; // upload path
         $extension = $one_uploaded_image->getClientOriginalExtension(); // getting image extension
-        $fileName = date("y-m-d-h-i-s").'-'.uniqid().'.'.$extension; // renameing image
+        $fileName = $car->id .'_' .date("y-m-d-h-i-s").'-'.uniqid().'.'.$extension; // renameing image
         $one_uploaded_image->move($destinationPath, $fileName); // uploading file to given path
         
       }
@@ -139,8 +125,8 @@ class ImageController extends Controller {
      
     }
     session()->flash('flash_success_compl_message', 'Il veicolo e stato creato!');
-    return redirect()->to(route('cars.completion', $car));
-
+    return redirect()->to(url('cars/completion', $car->id));
+   
   }
 
   /**
@@ -174,12 +160,12 @@ class ImageController extends Controller {
    * @param  int  $car_id = id of the CAR (car->id)!!
    * @return Response
    */
-  public function update($car_id)
+  public function update($car_id, ImageRequest $imgrequest)
   {
   
     $count_images_in_db = Image::where('car_id', '=', $car_id)->count();
 
-    $new_uploaded_images = Input::file('newimagesUpload');
+    $new_uploaded_images = $imgrequest->file('imagesUpload');
     $count_new_uploaded_images = count($new_uploaded_images);
 
     if (($count_images_in_db + $count_new_uploaded_images) > 12) {
@@ -188,18 +174,6 @@ class ImageController extends Controller {
     } else {true;}
     
     foreach ($new_uploaded_images as $key => $one_uploaded_image) {  
-      /*
-      // setting up rules
-      $rules = array('image' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
-      // doing the validation, passing post data, rules and the messages
-      $validator = Validator::make($image, $rules);
-      if ($validator->fails()) {
-      // send back to the page with the input data and errors
-      return redirect()->route('images.create')->withInput()->withErrors($validator);
-      }
-        else {
-      // checking file is valid.
-      */
 
       if ($one_uploaded_image->isValid()) 
       {
@@ -221,7 +195,7 @@ class ImageController extends Controller {
       $image_object->location = 'img/uploads/'.$fileName;
       $image_object->is_main = 0;
       $image_object->save();
-     
+    
     }
     session()->flash('flash_success_compl_img_message', 'Altri '.$count_new_uploaded_images.' immagini sono stati aggiunti!');
     return redirect()->to(route('cars.images.edit', $car_id));
