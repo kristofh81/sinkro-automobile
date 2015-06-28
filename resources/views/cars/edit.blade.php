@@ -38,4 +38,5 @@
 
 @section('scripts')
 <script src="{{ asset('/js/myscripts.js') }}"></script>
+<script src="{{ asset('/js/scrollscript.js') }}"></script>
 @endsection

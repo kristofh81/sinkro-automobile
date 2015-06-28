@@ -68,3 +68,7 @@
     </button>
 </a>
 @endsection
+
+@section('scripts')
+	<script src="{{ asset('/js/scrollscript.js') }}"></script>
+@endsection
