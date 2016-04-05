@@ -10,7 +10,7 @@
 	<link href="{{ asset('/css/mycss.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/jquery-ui.min.css') }}" rel="stylesheet">
-
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<!-- Fonts 
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 -->
@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 -->
 </head>
-<body>
+<body ng-app>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -39,8 +39,6 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ route('cars.index') }}">Home</a></li>
-				</ul>
-				<ul class="nav navbar-nav">
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin-panel <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
@@ -63,6 +61,15 @@
 							</ul>
 						</li>
 					@endif
+					<li>
+						<form action="{{url('language')}}" method="get">
+							<select name="lang" class="form-control">
+								<option value="en">Italiano</option>
+								<option value="nl">Nederlands</option>
+							</select>
+						<input type="submit" value="Choose" class="btn btn-default"></input>
+						</form>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -70,8 +77,12 @@
 
 	@yield('content')
 		
-	<br><br>
+	<br><br><br>
+	<footer>
+		<div class="centered">&copy; Kristof Hamelryckx <?=date('Y')?></div>		
+	</footer>
 
+	<br>
 	<!-- Scripts 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>

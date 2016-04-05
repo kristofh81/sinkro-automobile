@@ -43,7 +43,7 @@ class CarRequest extends Request {
 			'consumption_general' 	=> 'numeric',
 			'emission_co2' 			=> 'numeric',
 			'class_energy_efficiency' => 'numeric',
-			'color_type' 			=> 'numeric',
+			'color_type' 			=> '',
 			'immatriculation_date_month'	=> 'required|numeric',
 			'immatriculation_date_year'	=> 'required|numeric',
 

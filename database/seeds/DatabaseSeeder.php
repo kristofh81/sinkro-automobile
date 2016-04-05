@@ -41,17 +41,18 @@ class CarModelsTableSeeder extends Seeder {
          DB::table('models')->delete();
          //insert some dummy records
          DB::table('models')->insert(array(
-            ['name'=>'500'],
-            ['name'=>'Punto'],
-            ['name'=>'Musa'],
-            ['name'=>'Acenta'],
-            ['name'=>'Almera'],	
-            ['name'=>'Note'],	
-            ['name'=>'Corsa'],	
-            ['name'=>'Grand Scenic'],	
-            ['name'=>'Pulse'],	
-            ['name'=>'Land Cruiser'],	
-            ['name'=>'RAV4'],	
+            ['name'=>'500', 'marks_id' => 1],
+            ['name'=>'Punto', 'marks_id' => 1],
+            ['name'=>'Musa', 'marks_id' => 2],
+            ['name'=>'Acenta', 'marks_id' => 3],
+            ['name'=>'Almera', 'marks_id' => 3],	
+            ['name'=>'Note', 'marks_id' => 3],	
+            ['name'=>'Corsa', 'marks_id' => 4],	
+            ['name'=>'Grand Scenic', 'marks_id' => 5],	
+            ['name'=>'Pulse', 'marks_id' => 6],	
+            ['name'=>'Land Cruiser', 'marks_id' => 7],	
+            ['name'=>'RAV4', 'marks_id' => 7],  
+            ['name'=>'Altro', 'marks_id' => 8],	
          ));
     }
 }

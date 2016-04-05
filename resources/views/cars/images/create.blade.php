@@ -12,7 +12,7 @@
         			@include('errors.errorlist')
 						<div class="row">
 							<div class="col-md-10">		
-								{!! Form::open(array('action' => 'ImageController@store', 'method' => 'POST',  'class' => 'form-horizontal', 'files' => true)) !!}
+								{!! Form::open(array('action' => 'ImageController@store', 'method' => 'POST',  'class' => 'form-horizontal btn-default btn-block', 'files' => true)) !!}
 													
 								{!! Form::label('location', 'Scelgi immagini: *') !!}
 								{!! Form::file('imagesUpload[]', array('id'=>'fileElem', 'multiple', 'required', 'accept' => 'image/*', 'onChange'=>'handleFiles(this.files);')); !!}

@@ -11,18 +11,24 @@
 						@endforeach
 						</strong> creata da {{ $car->getCreatedAt($car->created_at) }} giorni.
 				</div>
+
+				<input type="text" ng-model="yourName">
+				<h1>@{{yourName}}</h1>
 				<div class="panel-body">
 
 					<div class='col-md-8'>
-					
-						<img src="../{{ $image_location }}" class="img-feature centered">
-						<br>
-						<h4> Marca:
-							@foreach ($car->marks as $mark)
-								{{ $mark->name }}
-							@endforeach
-						</h4>
-						<br>
+						<div class="row">	
+							<img src="../{{ $image_location }}" class="img-feature">
+							<h4> Marca:
+								@foreach ($car->marks as $mark)
+									{{ $mark->name }}
+								@endforeach
+							</h4>
+							<h4> Modello:
+								{{ $carmodel->name }}
+							</h4>
+							<hr>
+						</div>
 						<div class="row">	
 							<div class='col-md-8'>
 							<dl class="dl-horizontal">
@@ -118,15 +124,14 @@
 									</div>
 									<div class='col-md-4'>
 									<h5><strong>Optional</strong></h5>
-									</div>	
+										
 								@endif
 								@if($char_value == 1)
 									&rtrif; {{$characteristic->translateVar($char_key)}}<br>									
 								@endif	
 							@endforeach
-							
-			
 							</div>
+						</div>
 					</div>
 					<div class='col-md-4'>
 						<div class="panel panel-info">
@@ -152,11 +157,16 @@
 		</div>
 	</div>
 </div>
+<a href="#" class="scrollToTop">
+	<button type="button" class="btn btn-default btn-circle btn-lg">
+        <img src="../img/arrow-up.png" class="arrow-up-scrolltop">
+    </button>
+</a>
 @endsection
 
 @section('scripts')
+<script src="{{ asset('/js/scrollscript.js') }}"></script>
 <script type="text/javascript">
-
 $(document).ready(function(){
 bootstrap_alert = function() {}
 bootstrap_alert.warning = function(message) {

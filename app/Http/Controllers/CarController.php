@@ -8,11 +8,12 @@ use App\Http\Requests\ImageRequest;
 use App\Nation;
 use App\Car;
 use App\Mark;
+use App\Carmodel;
 use App\Consumptionemission;
 use App\Color;
 use App\Characteristic;
 use App\Image;
-use Carbon\Carbon;
+use Input; 
 
 class CarController extends Controller {
 
@@ -24,7 +25,7 @@ class CarController extends Controller {
   public function index()
   {
     $cars = Car::where('publish_flag','1')->get();
-
+    
     if (!$cars->isEmpty()) {
       
       foreach ($cars as $key => $car) {
@@ -37,13 +38,17 @@ class CarController extends Controller {
           }
 
         $marks[] = $car->marks->first();
-
+       
+        $carmodels[] = Carmodel::where('id' ,$car->models_id)->first();
+       
       //$cm_id = \DB::table('car_mark')->where('car_id', $car->id)->first()->mark_id;
-    //dd($mark);
+    
     //Mark::where('car_id', '=', $car->id)->first();
       }
+
+     // dd( $carmodels);
         
-    return view('cars.index')->with( ['cars' => $cars,  'images' => $images, 'marks' => $marks] );
+      return view('cars.index')->with( ['cars' => $cars,  'images' => $images, 'marks' => $marks , 'carmodels'=>$carmodels ] );
     
     // the first car to be created
     } else {
@@ -64,12 +69,11 @@ class CarController extends Controller {
   public function create()
   {
     //get values of nations and marks tables via pivots
-
     $nations = Nation::lists('name');
     array_unshift($nations , 'Seleziona');
     $marks = Mark::lists('name');
     array_unshift($marks , 'Seleziona');
-    
+   
     return view('cars.create')->with(['nations' => $nations, 'marks' => $marks]);
   }
 
@@ -87,7 +91,7 @@ class CarController extends Controller {
     $input_characteristics = $request->only('airco','park_sensors','seats_number','internal_design','internal_color','bluetooth','cd_player','electrically_adjustable_seats','display_headup','multifunction_assistent','panoramic_view','ski_bag','auxiliary_heating','radio_system','on_board_computer','electric_windows','handsfree_kit','interface_mp3','navigation','convertible_roof','seat_heating','sporttype_seats','cruise_control','central_door_lock',
 	'tow_bar','alloy_wheels','roof_rack','sport_suspension','electronic_side_windows','sport_package','class_emission','airbag','abs','immobilizer','isofix','fog_lights','rain_sensor','daytime_running_lights','xenon_lights','traction_integral','esp','adaptive_lights','light_sensor','filter_antiparticles','start_stop_system','servo','traction_control','access_handicapped','taxi','guarantee','service_booklet','non_smoking'
     	);
-    $input_car = $request->only('category', 'type', 'potency', 'mileage', 'doors','gears', 'cilinders', 'revision_expiry_date', 'bollino_blu_expiry_date','immatriculation_date_month','immatriculation_date_year', 'total_owners', 'accident_history', 'travel_ability', 'insert_code', 'vin', 'availability_period', 'description', 'price', 'price_b2b' , 'publish_flag', 'reserved_flag', 'fuel_type');
+    $input_car = $request->only('category', 'type', 'potency', 'mileage', 'doors','gears', 'cilinders', 'revision_expiry_date', 'bollino_blu_expiry_date','immatriculation_date_month','immatriculation_date_year', 'total_owners', 'accident_history', 'travel_ability', 'insert_code', 'vin', 'availability_period', 'description', 'price', 'price_b2b' , 'publish_flag', 'reserved_flag', 'fuel_type', 'models_id');
 
     //get the value marks and nations of request -> prepare for attach in Imagecontroller
 	  $input_marks_id = head($request->only('marks_id'));
@@ -130,6 +134,7 @@ class CarController extends Controller {
     $characteristic = Characteristic::findOrFail($car->characteristics_id);
     $color = Color::findOrFail($car->colors_id);
     $consumptionemission = Consumptionemission::findOrFail($car->consumptionemissions_id);
+    $carmodel = Carmodel::findOrFail($car->models_id);
 
       //check if first image exists
       if ($image !== null ){
@@ -144,6 +149,7 @@ class CarController extends Controller {
       'characteristic' => $characteristic,
       'color' => $color,
       'consumptionemission' => $consumptionemission,
+      'carmodel' => $carmodel,
       ] );
   }
 
@@ -164,6 +170,7 @@ class CarController extends Controller {
     $characteristic = Characteristic::findOrFail($car->characteristics_id);
     $color = Color::findOrFail($car->colors_id);
     $consumptionemission = Consumptionemission::findOrFail($car->consumptionemissions_id);
+    $carmodel = Carmodel::findOrFail($car->models_id);
 
     //convert the dates to the edit form
     $car->immatriculation_date = Car::frontDateFormat($car->immatriculation_date);
@@ -184,6 +191,7 @@ class CarController extends Controller {
       'characteristics' => $characteristic,
       'color' => $color,
       'consumptionemission' => $consumptionemission,
+      'carmodel' => $carmodel,
       ] );
   }
 
@@ -314,6 +322,15 @@ class CarController extends Controller {
     }
     return view('cars.index')->with( ['cars' => $cars,  'images' => $images, 'marks' => $marks] );
     */
+  }
+
+  public function ajaxCreate()
+  {
+   
+  $mark_id = Input::get('mark_id');
+  $carmodel = Carmodel::where('marks_id', $mark_id)->get();
+  return \Response::json($carmodel);
+
   }
 
 }

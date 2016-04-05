@@ -12,7 +12,7 @@
 							@include('errors.errorlist')	
 								<thead>
                                        <tr>
-                                            <th>Immagine</th>
+                                            <th>{{trans('index-list.Immagine')}}</th>
                                             <th>Marca</th>
                                             <th class="centered">Info</th>
                                             <th></th>
@@ -31,6 +31,8 @@
 										</td>	
 										<td>
 											<dl class="dl-horizontal">
+												<dt>modello:</dt>
+												<dd>{{ $carmodels[$key]['name'] }}</dd>
 												<dt>categoria:</dt>
 												<dd>{{ $car->category }}</dd>
 												<dt>tipo:</dt>

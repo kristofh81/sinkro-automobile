@@ -15,13 +15,13 @@
 				'Verde' => 'Verde',
 				'Viola' => 'Viola',
 				'Altro' => 'Altro',
-			), ($car!=='create' ? $color->color_type : null), array('class' => 'form-control')); !!}
+			), ($carcheck!=='create' ? $color->color_type : null), array('class' => 'form-control')); !!}
 		</div>
 		<div class='col-md-4'>
 			{!! Form::label('manufacturer', 'Nome colore del produttore:') !!}
-			{!! Form::text('manufacturer', ($car!=='create' ? $color->manufacturer : null), array('class' => 'form-control')) !!}
+			{!! Form::text('manufacturer', ($carcheck!=='create' ? $color->manufacturer : null), array('class' => 'form-control')) !!}
 		</div>
 		<div class='col-md-4'>
-			{!! Form::checkbox('metallic',  1, ($car!=='create' ? $color->metallic : false) , '') !!}
+			{!! Form::checkbox('metallic',  1, ($carcheck!=='create' ? $color->metallic : false) , '') !!}
 			{!! Form::label('metallic', ' Metallizzato') !!}
 		</div>

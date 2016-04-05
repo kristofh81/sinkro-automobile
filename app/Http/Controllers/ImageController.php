@@ -14,11 +14,6 @@ use App\Color;
 use App\Characteristic;
 use App\Image;
 
-use Input;
-use Validator;
-use Redirect;
-use Session;
-
 class ImageController extends Controller {
 
   /**
@@ -72,7 +67,9 @@ class ImageController extends Controller {
       session()->flash('flash_error_session_message', 'I dati sono persi durante la sessione. Riprova.');
       return redirect()->route('cars.create');
     }
-    Session::flush();
+        
+    //empty last session
+    $request->session()->flush();
 
     $color = Color::create($input_colors);
     $cons = Consumptionemission::create($input_consumptionemission);
@@ -113,7 +110,7 @@ class ImageController extends Controller {
       else {
         // sending back with error message.
         session()->flash('error '.($key+1).'', 'uploaded file' .($key+1). 'is not valid');
-        return Redirect::to('images.create');
+        return redirect()->to('images.create');
       }
 
       // create object and FK in image table
@@ -186,7 +183,7 @@ class ImageController extends Controller {
       else {
         // sending back with error message.
         session()->flash('error '.($key+1).'', 'uploaded file' .($key+1). 'is not valid');
-        return Redirect::to('images.create');
+        return redirect()->to('images.create');
       }
 
       // create object and FK in image table

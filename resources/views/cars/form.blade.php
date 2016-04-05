@@ -15,11 +15,11 @@
 					@include('cars.form-partials.marks')
 				</div>
 				<div class='col-md-4'>
-					{!! Form::label('models_id', 'Models_id:', array()) !!}
+					
 					@include('cars.form-partials.models')
 				</div>
 				<div class='col-md-4'>
-					{!! Form::label('versions_id', 'Versions_id:', array()) !!}
+					
 					@include('cars.form-partials.versions')
 				</div>			
 			</div>
@@ -100,14 +100,14 @@
 			<div class="form-group row">
 				<div class='col-md-4'>
 					{!! Form::label('revision_expiry_date', 'Scadenza revisione:') !!}
-					{!! Form::text('revision_expiry_date', ($car==='create' ? date('d/m/Y') : null) , 
+					{!! Form::text('revision_expiry_date', ($carcheck==='create' ? date('d/m/Y') : null) , 
 		                    array(
 		                          'class'=>'form-control calendar', 
 		                          'placeholder'=> 'gg/mm/aaaa')) !!}
 				</div>		
 				<div class='col-md-4'>
 					{!! Form::label('bollino_blu_expiry_date', 'Scadenza bollino blu:') !!}
-					{!! Form::text('bollino_blu_expiry_date', ($car==='create' ? date('d/m/Y') : null) , 
+					{!! Form::text('bollino_blu_expiry_date', ($carcheck==='create' ? date('d/m/Y') : null) , 
 		                    array(
 		                          'class'=>'form-control calendar', 
 		                          'placeholder'=> 'gg/mm/aaaa')) !!}

@@ -36,18 +36,8 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
-		/*if ($e instanceof \Symfony\Component\HttpKernel\Exception\ForbiddenException) {
-        return redirect()->route('cars.index')->withErrors(['error' => $e->getMessage()]);
-    	}
 
-    	elseif ($e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
-    	return response(view('errors.404'), 404);}
-    	}
 
-    	elseif ($e instanceof \Symfony\Component\HttpKernel\Exception\ModelNotFoundException) {
-    	return response(view('errors.404'), 404);}
-    	}
-*/
 		return parent::render($request, $e);
 	}
 

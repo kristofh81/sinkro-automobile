@@ -1,4 +1,9 @@
 		<li>
 			{!! Form::label('name_models', 'Modello:') !!}
-			{!! Form::text('model_id', null, array('class' => 'form-control')) !!}
+			{!! Form::select(
+				'models_id', 
+				array(($carcheck!=='create' ? $carmodel->id :  '') => ($carcheck!=='create' ? $carmodel->name : '')), 
+				null, 
+				array('class' => 'form-control', 'id' => 'model-data')) 
+			!!}
 		</li>

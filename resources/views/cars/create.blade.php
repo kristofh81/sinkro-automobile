@@ -10,9 +10,8 @@
 				<div class="panel-heading"><h4>1. Dati del veicolo</h4></div>
 					<div class="panel-body">
         			@include('errors.errorlist')
-
 					{!! Form::open(array('route' => 'cars.store', 'method' => 'POST', 'class' => 'form-horizontal')) !!}
-					@include('cars.form', ['car' => 'create'])			
+					@include('cars.form', ['carcheck' => 'create'])			
 					</div>
 				</div>
 				<!--just outer panel!-->
@@ -34,4 +33,24 @@
 @section('scripts')
 <script src="{{ asset('/js/myscripts.js') }}"></script>
 <script src="{{ asset('/js/scrollscript.js') }}"></script>
+<script type="text/javascript">
+// ajax loading form element
+$('#mark-select').change(function() {
+	var input = "";
+    $( "#mark-select option:selected" ).each(function() {
+      input += $( this ).val();
+    });
+
+    var token = $('input[name=_token]').val();
+    
+    //ajax
+    $.get( "{{url('/ajax-select-model?mark_id=')}}" + input, function(data) {
+    	$('#model-data').empty();
+    	$.each(data, function(index, model){
+    		$('#model-data').append('<option value="'+model.id+'">'+ model.name +'</option>');
+    	});
+    });
+    //return false;     
+});
+</script>
 @endsection

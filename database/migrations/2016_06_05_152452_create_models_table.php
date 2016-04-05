@@ -10,7 +10,11 @@ class CreateModelsTable extends Migration {
 		Schema::create('models', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
+			$table->integer('marks_id')->unsigned();
 			$table->timestamps();
+
+			$table->foreign('marks_id')->references('id')->on('marks')
+						->onDelete('cascade');
 		});
 	}
 

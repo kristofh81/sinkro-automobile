@@ -5,8 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Carmodel extends Model {
 
-	protected $table = 'carmodels';
+	protected $table = 'models';
 	public $timestamps = true;
+	protected $fillable = array('name', 'marks_id');
 
 	public function cars()
 	{
